@@ -1,0 +1,701 @@
+Delivery_Partner_ID,Partner_Name,Vehicle_Type,City,Partner_Rating,Experience_Months
+DP0001,Partner 0001,Bike,Bengaluru,4.7,13
+DP0002,Partner 0002,Scooter,Hyderabad,4.5,24
+DP0003,Partner 0003,Bike,Chennai,3.8,48
+DP0004,Partner 0004,Cycle,Bengaluru,4.6,38
+DP0005,Partner 0005,Bike,Chennai,4.6,58
+DP0006,Partner 0006,EV Bike,Pune,3.8,40
+DP0007,Partner 0007,Bike,Chennai,3.8,48
+DP0008,Partner 0008,Bike,Delhi,4.0,45
+DP0009,Partner 0009,Scooter,Bengaluru,3.7,55
+DP0010,Partner 0010,Bike,Kolkata,3.9,29
+DP0011,Partner 0011,Bike,Jaipur,4.1,58
+DP0012,Partner 0012,Bike,Mumbai,4.4,36
+DP0013,Partner 0013,Scooter,Bengaluru,4.2,2
+DP0014,Partner 0014,Cycle,Hyderabad,4.1,41
+DP0015,Partner 0015,Bike,Chennai,4.0,18
+DP0016,Partner 0016,EV Bike,Bengaluru,3.7,49
+DP0017,Partner 0017,Bike,Pune,4.4,8
+DP0018,Partner 0018,Bike,Bengaluru,4.4,58
+DP0019,Partner 0019,Cycle,Pune,4.0,15
+DP0020,Partner 0020,EV Bike,Jaipur,3.8,41
+DP0021,Partner 0021,EV Bike,Jaipur,4.7,17
+DP0022,Partner 0022,Bike,Chennai,4.3,23
+DP0023,Partner 0023,Bike,Mumbai,4.3,2
+DP0024,Partner 0024,Bike,Chennai,4.4,6
+DP0025,Partner 0025,Bike,Hyderabad,3.8,29
+DP0026,Partner 0026,Bike,Delhi,4.7,27
+DP0027,Partner 0027,EV Bike,Mumbai,4.1,37
+DP0028,Partner 0028,EV Bike,Mumbai,4.5,49
+DP0029,Partner 0029,Bike,Jaipur,4.7,34
+DP0030,Partner 0030,Bike,Delhi,4.2,18
+DP0031,Partner 0031,EV Bike,Bengaluru,3.8,42
+DP0032,Partner 0032,Bike,Chennai,3.3,10
+DP0033,Partner 0033,Scooter,Bengaluru,4.2,38
+DP0034,Partner 0034,Bike,Bengaluru,4.3,59
+DP0035,Partner 0035,Bike,Chennai,4.0,44
+DP0036,Partner 0036,Cycle,Hyderabad,4.2,17
+DP0037,Partner 0037,Bike,Mumbai,4.4,59
+DP0038,Partner 0038,Bike,Pune,4.5,13
+DP0039,Partner 0039,Bike,Delhi,4.1,52
+DP0040,Partner 0040,Cycle,Mumbai,4.2,60
+DP0041,Partner 0041,EV Bike,Bengaluru,4.1,48
+DP0042,Partner 0042,Bike,Delhi,4.2,42
+DP0043,Partner 0043,Bike,Pune,4.0,27
+DP0044,Partner 0044,Scooter,Mumbai,4.0,53
+DP0045,Partner 0045,Bike,Mumbai,4.0,2
+DP0046,Partner 0046,Scooter,Hyderabad,4.3,34
+DP0047,Partner 0047,Bike,Mumbai,3.9,31
+DP0048,Partner 0048,Bike,Mumbai,4.0,23
+DP0049,Partner 0049,Scooter,Pune,4.8,7
+DP0050,Partner 0050,Bike,Pune,4.5,38
+DP0051,Partner 0051,EV Bike,Delhi,3.9,33
+DP0052,Partner 0052,Bike,Bengaluru,4.5,12
+DP0053,Partner 0053,Bike,Pune,4.4,45
+DP0054,Partner 0054,Cycle,Delhi,4.2,12
+DP0055,Partner 0055,Bike,Mumbai,4.0,19
+DP0056,Partner 0056,Scooter,Jaipur,3.9,9
+DP0057,Partner 0057,Bike,Delhi,4.3,10
+DP0058,Partner 0058,Scooter,Jaipur,3.9,17
+DP0059,Partner 0059,Scooter,Delhi,4.6,50
+DP0060,Partner 0060,Bike,Delhi,4.7,40
+DP0061,Partner 0061,EV Bike,Jaipur,4.2,39
+DP0062,Partner 0062,Scooter,Chennai,4.6,41
+DP0063,Partner 0063,Bike,Delhi,4.1,10
+DP0064,Partner 0064,Scooter,Jaipur,3.9,12
+DP0065,Partner 0065,Scooter,Pune,4.6,15
+DP0066,Partner 0066,Bike,Kolkata,4.8,31
+DP0067,Partner 0067,Bike,Kolkata,4.9,15
+DP0068,Partner 0068,Bike,Kolkata,4.3,28
+DP0069,Partner 0069,Bike,Kolkata,4.5,4
+DP0070,Partner 0070,EV Bike,Chennai,4.3,36
+DP0071,Partner 0071,Bike,Bengaluru,4.7,55
+DP0072,Partner 0072,Cycle,Jaipur,4.4,1
+DP0073,Partner 0073,Bike,Delhi,4.5,58
+DP0074,Partner 0074,Bike,Hyderabad,3.8,44
+DP0075,Partner 0075,EV Bike,Kolkata,4.1,57
+DP0076,Partner 0076,Bike,Mumbai,4.5,34
+DP0077,Partner 0077,Bike,Kolkata,4.5,47
+DP0078,Partner 0078,Bike,Kolkata,4.5,17
+DP0079,Partner 0079,Bike,Mumbai,4.2,39
+DP0080,Partner 0080,Bike,Chennai,4.0,38
+DP0081,Partner 0081,Cycle,Mumbai,4.2,44
+DP0082,Partner 0082,Bike,Mumbai,4.2,51
+DP0083,Partner 0083,EV Bike,Chennai,4.3,33
+DP0084,Partner 0084,Scooter,Mumbai,3.9,60
+DP0085,Partner 0085,Bike,Delhi,4.1,21
+DP0086,Partner 0086,Bike,Kolkata,4.2,26
+DP0087,Partner 0087,EV Bike,Bengaluru,3.4,46
+DP0088,Partner 0088,EV Bike,Chennai,4.5,36
+DP0089,Partner 0089,Bike,Hyderabad,4.3,5
+DP0090,Partner 0090,Bike,Chennai,4.3,33
+DP0091,Partner 0091,Bike,Pune,4.0,1
+DP0092,Partner 0092,Bike,Hyderabad,4.4,53
+DP0093,Partner 0093,Scooter,Pune,3.9,6
+DP0094,Partner 0094,EV Bike,Jaipur,4.0,37
+DP0095,Partner 0095,Bike,Jaipur,4.4,2
+DP0096,Partner 0096,Scooter,Chennai,4.3,57
+DP0097,Partner 0097,Scooter,Pune,3.8,53
+DP0098,Partner 0098,Bike,Hyderabad,4.8,59
+DP0099,Partner 0099,Bike,Delhi,3.9,59
+DP0100,Partner 0100,Scooter,Chennai,4.2,5
+DP0101,Partner 0101,EV Bike,Chennai,4.8,26
+DP0102,Partner 0102,Scooter,Mumbai,3.5,41
+DP0103,Partner 0103,Bike,Chennai,3.6,51
+DP0104,Partner 0104,Bike,Kolkata,4.4,53
+DP0105,Partner 0105,Bike,Jaipur,3.3,47
+DP0106,Partner 0106,Scooter,Kolkata,3.5,13
+DP0107,Partner 0107,EV Bike,Chennai,4.6,12
+DP0108,Partner 0108,Bike,Jaipur,4.1,5
+DP0109,Partner 0109,EV Bike,Jaipur,5.0,2
+DP0110,Partner 0110,Scooter,Delhi,3.8,59
+DP0111,Partner 0111,Scooter,Mumbai,4.1,4
+DP0112,Partner 0112,Cycle,Bengaluru,4.4,59
+DP0113,Partner 0113,Bike,Pune,4.4,27
+DP0114,Partner 0114,Cycle,Hyderabad,4.1,50
+DP0115,Partner 0115,Bike,Bengaluru,4.0,53
+DP0116,Partner 0116,Bike,Mumbai,4.3,10
+DP0117,Partner 0117,EV Bike,Kolkata,4.7,13
+DP0118,Partner 0118,Cycle,Kolkata,4.5,44
+DP0119,Partner 0119,Bike,Kolkata,4.0,2
+DP0120,Partner 0120,Scooter,Delhi,3.9,26
+DP0121,Partner 0121,Scooter,Jaipur,4.0,15
+DP0122,Partner 0122,EV Bike,Kolkata,3.8,46
+DP0123,Partner 0123,Bike,Hyderabad,4.3,57
+DP0124,Partner 0124,EV Bike,Pune,4.5,10
+DP0125,Partner 0125,Bike,Chennai,4.2,22
+DP0126,Partner 0126,Bike,Chennai,4.8,40
+DP0127,Partner 0127,Bike,Bengaluru,4.8,25
+DP0128,Partner 0128,Bike,Pune,4.3,15
+DP0129,Partner 0129,Cycle,Mumbai,4.4,13
+DP0130,Partner 0130,Bike,Pune,3.9,8
+DP0131,Partner 0131,Cycle,Delhi,4.1,21
+DP0132,Partner 0132,Bike,Bengaluru,4.6,21
+DP0133,Partner 0133,Scooter,Bengaluru,4.0,22
+DP0134,Partner 0134,EV Bike,Delhi,4.7,46
+DP0135,Partner 0135,Scooter,Pune,4.6,33
+DP0136,Partner 0136,Scooter,Kolkata,4.5,45
+DP0137,Partner 0137,Scooter,Delhi,3.8,27
+DP0138,Partner 0138,EV Bike,Kolkata,4.1,40
+DP0139,Partner 0139,EV Bike,Hyderabad,4.4,50
+DP0140,Partner 0140,Bike,Delhi,3.9,22
+DP0141,Partner 0141,EV Bike,Kolkata,4.1,30
+DP0142,Partner 0142,Bike,Pune,4.5,9
+DP0143,Partner 0143,Bike,Kolkata,4.0,45
+DP0144,Partner 0144,EV Bike,Delhi,3.9,35
+DP0145,Partner 0145,Bike,Mumbai,3.6,18
+DP0146,Partner 0146,EV Bike,Chennai,4.1,42
+DP0147,Partner 0147,Bike,Delhi,4.5,5
+DP0148,Partner 0148,Bike,Chennai,3.9,27
+DP0149,Partner 0149,Bike,Delhi,4.2,57
+DP0150,Partner 0150,Bike,Pune,4.1,6
+DP0151,Partner 0151,EV Bike,Hyderabad,4.0,32
+DP0152,Partner 0152,Bike,Hyderabad,4.5,8
+DP0153,Partner 0153,Bike,Chennai,4.8,56
+DP0154,Partner 0154,Bike,Jaipur,4.6,39
+DP0155,Partner 0155,Bike,Jaipur,4.0,21
+DP0156,Partner 0156,EV Bike,Pune,4.9,18
+DP0157,Partner 0157,Bike,Kolkata,4.6,14
+DP0158,Partner 0158,Scooter,Pune,4.0,15
+DP0159,Partner 0159,Cycle,Jaipur,3.9,42
+DP0160,Partner 0160,Scooter,Pune,4.6,26
+DP0161,Partner 0161,EV Bike,Mumbai,4.3,53
+DP0162,Partner 0162,Bike,Bengaluru,3.9,44
+DP0163,Partner 0163,Bike,Jaipur,4.1,32
+DP0164,Partner 0164,EV Bike,Jaipur,4.1,39
+DP0165,Partner 0165,Scooter,Delhi,3.9,28
+DP0166,Partner 0166,Scooter,Pune,4.6,60
+DP0167,Partner 0167,Scooter,Pune,4.5,39
+DP0168,Partner 0168,Bike,Pune,4.5,43
+DP0169,Partner 0169,Bike,Hyderabad,4.5,32
+DP0170,Partner 0170,EV Bike,Pune,3.9,13
+DP0171,Partner 0171,Scooter,Jaipur,4.0,15
+DP0172,Partner 0172,Bike,Delhi,4.7,18
+DP0173,Partner 0173,EV Bike,Kolkata,4.2,39
+DP0174,Partner 0174,Bike,Kolkata,3.7,6
+DP0175,Partner 0175,Bike,Pune,4.3,55
+DP0176,Partner 0176,EV Bike,Delhi,4.4,11
+DP0177,Partner 0177,EV Bike,Mumbai,4.4,32
+DP0178,Partner 0178,Bike,Kolkata,3.9,40
+DP0179,Partner 0179,Bike,Jaipur,4.9,20
+DP0180,Partner 0180,Bike,Bengaluru,3.7,33
+DP0181,Partner 0181,Scooter,Hyderabad,4.2,40
+DP0182,Partner 0182,Bike,Delhi,4.8,8
+DP0183,Partner 0183,EV Bike,Kolkata,4.4,51
+DP0184,Partner 0184,Cycle,Kolkata,4.5,35
+DP0185,Partner 0185,EV Bike,Chennai,3.8,5
+DP0186,Partner 0186,Bike,Mumbai,4.3,35
+DP0187,Partner 0187,EV Bike,Bengaluru,4.2,47
+DP0188,Partner 0188,Bike,Bengaluru,3.8,14
+DP0189,Partner 0189,Bike,Bengaluru,4.5,21
+DP0190,Partner 0190,Bike,Jaipur,3.9,47
+DP0191,Partner 0191,Bike,Delhi,4.0,24
+DP0192,Partner 0192,Cycle,Mumbai,4.4,17
+DP0193,Partner 0193,Bike,Pune,4.1,18
+DP0194,Partner 0194,Bike,Chennai,4.3,34
+DP0195,Partner 0195,Cycle,Mumbai,4.1,12
+DP0196,Partner 0196,Bike,Mumbai,4.7,16
+DP0197,Partner 0197,EV Bike,Kolkata,3.9,4
+DP0198,Partner 0198,Bike,Mumbai,4.0,25
+DP0199,Partner 0199,Bike,Delhi,4.4,34
+DP0200,Partner 0200,Cycle,Chennai,3.9,28
+DP0201,Partner 0201,Bike,Delhi,3.8,46
+DP0202,Partner 0202,Scooter,Chennai,4.2,11
+DP0203,Partner 0203,Bike,Chennai,4.5,13
+DP0204,Partner 0204,Bike,Kolkata,4.5,31
+DP0205,Partner 0205,Bike,Delhi,4.2,60
+DP0206,Partner 0206,Bike,Chennai,4.0,25
+DP0207,Partner 0207,Bike,Mumbai,4.3,39
+DP0208,Partner 0208,EV Bike,Delhi,4.4,10
+DP0209,Partner 0209,Bike,Chennai,4.3,24
+DP0210,Partner 0210,Bike,Jaipur,4.6,1
+DP0211,Partner 0211,Bike,Bengaluru,3.8,53
+DP0212,Partner 0212,Cycle,Delhi,4.0,25
+DP0213,Partner 0213,Cycle,Kolkata,4.6,28
+DP0214,Partner 0214,Scooter,Jaipur,3.7,36
+DP0215,Partner 0215,EV Bike,Jaipur,4.0,18
+DP0216,Partner 0216,Bike,Hyderabad,3.9,6
+DP0217,Partner 0217,Bike,Delhi,3.7,2
+DP0218,Partner 0218,Scooter,Jaipur,4.1,3
+DP0219,Partner 0219,Scooter,Delhi,4.5,46
+DP0220,Partner 0220,Bike,Delhi,4.3,8
+DP0221,Partner 0221,Bike,Chennai,4.5,31
+DP0222,Partner 0222,Cycle,Delhi,4.6,48
+DP0223,Partner 0223,EV Bike,Hyderabad,4.1,19
+DP0224,Partner 0224,Bike,Pune,5.0,50
+DP0225,Partner 0225,Scooter,Delhi,4.1,6
+DP0226,Partner 0226,Bike,Bengaluru,4.1,14
+DP0227,Partner 0227,Bike,Hyderabad,4.0,3
+DP0228,Partner 0228,Bike,Pune,4.4,48
+DP0229,Partner 0229,Bike,Chennai,4.1,1
+DP0230,Partner 0230,Bike,Delhi,4.2,44
+DP0231,Partner 0231,EV Bike,Pune,4.1,30
+DP0232,Partner 0232,Bike,Bengaluru,4.1,46
+DP0233,Partner 0233,Scooter,Hyderabad,4.3,19
+DP0234,Partner 0234,Bike,Hyderabad,4.0,54
+DP0235,Partner 0235,Bike,Chennai,4.1,19
+DP0236,Partner 0236,EV Bike,Chennai,4.6,9
+DP0237,Partner 0237,Scooter,Chennai,4.1,7
+DP0238,Partner 0238,Cycle,Pune,4.3,46
+DP0239,Partner 0239,Cycle,Delhi,3.9,37
+DP0240,Partner 0240,Bike,Mumbai,4.0,50
+DP0241,Partner 0241,Bike,Jaipur,3.8,41
+DP0242,Partner 0242,EV Bike,Hyderabad,4.8,53
+DP0243,Partner 0243,Cycle,Mumbai,4.7,7
+DP0244,Partner 0244,Scooter,Kolkata,4.4,9
+DP0245,Partner 0245,EV Bike,Hyderabad,5.0,4
+DP0246,Partner 0246,EV Bike,Jaipur,4.5,25
+DP0247,Partner 0247,Bike,Chennai,4.1,49
+DP0248,Partner 0248,Scooter,Jaipur,4.3,12
+DP0249,Partner 0249,EV Bike,Delhi,4.7,6
+DP0250,Partner 0250,Scooter,Delhi,3.9,18
+DP0251,Partner 0251,Bike,Hyderabad,3.8,40
+DP0252,Partner 0252,Bike,Pune,4.3,21
+DP0253,Partner 0253,Bike,Kolkata,4.0,15
+DP0254,Partner 0254,Bike,Jaipur,3.4,3
+DP0255,Partner 0255,Cycle,Chennai,3.8,2
+DP0256,Partner 0256,Bike,Delhi,4.1,56
+DP0257,Partner 0257,Bike,Kolkata,4.2,55
+DP0258,Partner 0258,Bike,Kolkata,4.2,41
+DP0259,Partner 0259,Scooter,Delhi,4.9,40
+DP0260,Partner 0260,Bike,Bengaluru,4.1,59
+DP0261,Partner 0261,Bike,Jaipur,4.3,4
+DP0262,Partner 0262,Bike,Kolkata,3.6,32
+DP0263,Partner 0263,Bike,Delhi,4.2,2
+DP0264,Partner 0264,Bike,Bengaluru,4.3,46
+DP0265,Partner 0265,Bike,Delhi,3.7,29
+DP0266,Partner 0266,Cycle,Delhi,3.9,2
+DP0267,Partner 0267,Bike,Kolkata,4.4,34
+DP0268,Partner 0268,Bike,Pune,4.0,27
+DP0269,Partner 0269,Scooter,Pune,4.2,60
+DP0270,Partner 0270,Bike,Chennai,4.4,54
+DP0271,Partner 0271,Scooter,Jaipur,4.9,39
+DP0272,Partner 0272,Bike,Delhi,4.1,44
+DP0273,Partner 0273,Scooter,Jaipur,4.8,38
+DP0274,Partner 0274,EV Bike,Chennai,3.5,18
+DP0275,Partner 0275,Cycle,Chennai,4.3,36
+DP0276,Partner 0276,Bike,Chennai,4.1,19
+DP0277,Partner 0277,Bike,Chennai,4.0,27
+DP0278,Partner 0278,Bike,Hyderabad,4.4,45
+DP0279,Partner 0279,Cycle,Kolkata,4.1,20
+DP0280,Partner 0280,Cycle,Kolkata,3.5,21
+DP0281,Partner 0281,Bike,Hyderabad,3.6,23
+DP0282,Partner 0282,Bike,Delhi,4.5,30
+DP0283,Partner 0283,Bike,Hyderabad,3.6,25
+DP0284,Partner 0284,Bike,Delhi,4.5,31
+DP0285,Partner 0285,Bike,Pune,4.2,27
+DP0286,Partner 0286,Bike,Kolkata,4.1,34
+DP0287,Partner 0287,Scooter,Mumbai,4.2,8
+DP0288,Partner 0288,Cycle,Bengaluru,4.4,19
+DP0289,Partner 0289,Cycle,Kolkata,3.8,41
+DP0290,Partner 0290,Bike,Hyderabad,4.2,26
+DP0291,Partner 0291,Scooter,Hyderabad,3.8,28
+DP0292,Partner 0292,EV Bike,Pune,4.3,4
+DP0293,Partner 0293,Bike,Hyderabad,4.4,31
+DP0294,Partner 0294,Scooter,Delhi,4.3,16
+DP0295,Partner 0295,Bike,Delhi,4.4,51
+DP0296,Partner 0296,Bike,Mumbai,4.0,10
+DP0297,Partner 0297,Bike,Mumbai,4.2,38
+DP0298,Partner 0298,Bike,Kolkata,4.1,48
+DP0299,Partner 0299,Scooter,Mumbai,4.1,10
+DP0300,Partner 0300,Bike,Delhi,3.9,45
+DP0301,Partner 0301,Bike,Jaipur,4.0,9
+DP0302,Partner 0302,Bike,Chennai,3.8,39
+DP0303,Partner 0303,EV Bike,Chennai,3.6,36
+DP0304,Partner 0304,Bike,Mumbai,4.0,51
+DP0305,Partner 0305,Scooter,Mumbai,4.4,58
+DP0306,Partner 0306,Scooter,Delhi,4.3,36
+DP0307,Partner 0307,Bike,Pune,3.8,19
+DP0308,Partner 0308,Bike,Kolkata,4.1,60
+DP0309,Partner 0309,Scooter,Hyderabad,4.4,19
+DP0310,Partner 0310,Bike,Kolkata,4.0,12
+DP0311,Partner 0311,Bike,Bengaluru,3.7,13
+DP0312,Partner 0312,Scooter,Chennai,5.0,25
+DP0313,Partner 0313,Bike,Jaipur,4.1,36
+DP0314,Partner 0314,Bike,Chennai,3.8,25
+DP0315,Partner 0315,Bike,Delhi,4.3,28
+DP0316,Partner 0316,Bike,Kolkata,4.2,42
+DP0317,Partner 0317,Scooter,Jaipur,3.7,53
+DP0318,Partner 0318,Scooter,Delhi,4.2,39
+DP0319,Partner 0319,Scooter,Bengaluru,4.5,30
+DP0320,Partner 0320,Scooter,Jaipur,4.1,5
+DP0321,Partner 0321,Bike,Kolkata,3.5,17
+DP0322,Partner 0322,Bike,Jaipur,4.3,18
+DP0323,Partner 0323,Bike,Bengaluru,4.4,43
+DP0324,Partner 0324,Bike,Mumbai,4.0,47
+DP0325,Partner 0325,Cycle,Kolkata,4.0,21
+DP0326,Partner 0326,EV Bike,Bengaluru,5.0,22
+DP0327,Partner 0327,Bike,Hyderabad,4.0,39
+DP0328,Partner 0328,Bike,Hyderabad,3.8,50
+DP0329,Partner 0329,Bike,Chennai,4.2,58
+DP0330,Partner 0330,Bike,Hyderabad,4.4,57
+DP0331,Partner 0331,Bike,Kolkata,4.4,6
+DP0332,Partner 0332,Bike,Hyderabad,3.3,50
+DP0333,Partner 0333,EV Bike,Hyderabad,4.0,16
+DP0334,Partner 0334,Scooter,Jaipur,4.6,2
+DP0335,Partner 0335,Bike,Mumbai,4.3,51
+DP0336,Partner 0336,Bike,Chennai,3.8,1
+DP0337,Partner 0337,Bike,Delhi,4.6,57
+DP0338,Partner 0338,EV Bike,Chennai,4.5,30
+DP0339,Partner 0339,EV Bike,Chennai,4.1,58
+DP0340,Partner 0340,Cycle,Chennai,4.5,43
+DP0341,Partner 0341,Bike,Bengaluru,4.9,52
+DP0342,Partner 0342,Scooter,Delhi,3.8,37
+DP0343,Partner 0343,Bike,Bengaluru,4.4,48
+DP0344,Partner 0344,Scooter,Mumbai,4.9,23
+DP0345,Partner 0345,Bike,Mumbai,4.4,1
+DP0346,Partner 0346,Bike,Pune,3.9,19
+DP0347,Partner 0347,Scooter,Pune,4.3,46
+DP0348,Partner 0348,Bike,Jaipur,4.7,3
+DP0349,Partner 0349,Bike,Mumbai,3.8,2
+DP0350,Partner 0350,Bike,Mumbai,4.2,56
+DP0351,Partner 0351,Bike,Bengaluru,4.1,37
+DP0352,Partner 0352,Bike,Jaipur,4.0,17
+DP0353,Partner 0353,Bike,Mumbai,4.3,28
+DP0354,Partner 0354,Bike,Kolkata,4.2,18
+DP0355,Partner 0355,Bike,Delhi,4.4,33
+DP0356,Partner 0356,Cycle,Bengaluru,4.6,15
+DP0357,Partner 0357,Bike,Mumbai,3.8,22
+DP0358,Partner 0358,Bike,Bengaluru,4.2,41
+DP0359,Partner 0359,Bike,Bengaluru,4.2,27
+DP0360,Partner 0360,EV Bike,Hyderabad,4.3,55
+DP0361,Partner 0361,Scooter,Jaipur,4.2,37
+DP0362,Partner 0362,Bike,Pune,3.9,32
+DP0363,Partner 0363,Scooter,Jaipur,4.7,60
+DP0364,Partner 0364,Scooter,Bengaluru,4.9,45
+DP0365,Partner 0365,Scooter,Jaipur,4.4,19
+DP0366,Partner 0366,Scooter,Chennai,4.4,28
+DP0367,Partner 0367,EV Bike,Kolkata,4.2,28
+DP0368,Partner 0368,EV Bike,Kolkata,4.5,56
+DP0369,Partner 0369,Scooter,Bengaluru,3.3,10
+DP0370,Partner 0370,Bike,Chennai,4.2,20
+DP0371,Partner 0371,Scooter,Kolkata,4.0,25
+DP0372,Partner 0372,EV Bike,Hyderabad,4.3,21
+DP0373,Partner 0373,Bike,Mumbai,4.6,14
+DP0374,Partner 0374,Cycle,Bengaluru,4.2,22
+DP0375,Partner 0375,Bike,Hyderabad,4.1,53
+DP0376,Partner 0376,Bike,Jaipur,3.7,26
+DP0377,Partner 0377,EV Bike,Delhi,4.2,44
+DP0378,Partner 0378,Bike,Jaipur,4.4,11
+DP0379,Partner 0379,Bike,Hyderabad,3.9,55
+DP0380,Partner 0380,Bike,Pune,3.5,7
+DP0381,Partner 0381,Bike,Pune,5.0,17
+DP0382,Partner 0382,Bike,Mumbai,4.3,18
+DP0383,Partner 0383,Bike,Jaipur,4.1,7
+DP0384,Partner 0384,Bike,Chennai,4.7,56
+DP0385,Partner 0385,Cycle,Mumbai,4.2,20
+DP0386,Partner 0386,Cycle,Kolkata,4.7,38
+DP0387,Partner 0387,Bike,Chennai,4.6,11
+DP0388,Partner 0388,Scooter,Chennai,3.8,44
+DP0389,Partner 0389,Bike,Chennai,4.4,58
+DP0390,Partner 0390,Bike,Chennai,4.8,16
+DP0391,Partner 0391,Bike,Pune,3.9,51
+DP0392,Partner 0392,Cycle,Jaipur,3.9,55
+DP0393,Partner 0393,Cycle,Kolkata,3.9,27
+DP0394,Partner 0394,Bike,Pune,4.5,51
+DP0395,Partner 0395,Bike,Bengaluru,4.3,11
+DP0396,Partner 0396,Bike,Kolkata,3.5,16
+DP0397,Partner 0397,Bike,Pune,4.3,23
+DP0398,Partner 0398,Scooter,Mumbai,4.1,60
+DP0399,Partner 0399,Bike,Pune,4.2,59
+DP0400,Partner 0400,EV Bike,Kolkata,3.9,12
+DP0401,Partner 0401,Bike,Kolkata,4.3,59
+DP0402,Partner 0402,Cycle,Mumbai,4.6,40
+DP0403,Partner 0403,Scooter,Delhi,4.0,3
+DP0404,Partner 0404,Bike,Jaipur,3.6,2
+DP0405,Partner 0405,EV Bike,Kolkata,4.1,60
+DP0406,Partner 0406,EV Bike,Pune,4.5,38
+DP0407,Partner 0407,Bike,Mumbai,4.1,48
+DP0408,Partner 0408,Bike,Chennai,3.7,52
+DP0409,Partner 0409,Cycle,Jaipur,4.5,24
+DP0410,Partner 0410,Bike,Kolkata,4.7,29
+DP0411,Partner 0411,Bike,Jaipur,4.2,47
+DP0412,Partner 0412,Bike,Jaipur,3.6,46
+DP0413,Partner 0413,EV Bike,Hyderabad,4.1,34
+DP0414,Partner 0414,EV Bike,Jaipur,4.3,20
+DP0415,Partner 0415,Cycle,Chennai,3.9,18
+DP0416,Partner 0416,Bike,Bengaluru,4.4,14
+DP0417,Partner 0417,Bike,Jaipur,3.9,18
+DP0418,Partner 0418,Scooter,Kolkata,4.2,2
+DP0419,Partner 0419,EV Bike,Mumbai,4.1,1
+DP0420,Partner 0420,Bike,Chennai,4.4,20
+DP0421,Partner 0421,Bike,Pune,4.2,34
+DP0422,Partner 0422,Bike,Pune,4.1,41
+DP0423,Partner 0423,Scooter,Kolkata,3.9,41
+DP0424,Partner 0424,EV Bike,Delhi,4.2,48
+DP0425,Partner 0425,Scooter,Hyderabad,4.1,11
+DP0426,Partner 0426,Cycle,Kolkata,3.9,27
+DP0427,Partner 0427,Bike,Mumbai,4.3,23
+DP0428,Partner 0428,Cycle,Chennai,4.3,38
+DP0429,Partner 0429,EV Bike,Hyderabad,4.1,44
+DP0430,Partner 0430,Bike,Delhi,4.5,3
+DP0431,Partner 0431,Cycle,Kolkata,4.3,12
+DP0432,Partner 0432,Bike,Bengaluru,3.8,30
+DP0433,Partner 0433,EV Bike,Hyderabad,4.7,31
+DP0434,Partner 0434,EV Bike,Delhi,4.5,23
+DP0435,Partner 0435,EV Bike,Kolkata,4.6,1
+DP0436,Partner 0436,Scooter,Jaipur,4.3,41
+DP0437,Partner 0437,Bike,Kolkata,3.4,20
+DP0438,Partner 0438,Bike,Mumbai,4.6,54
+DP0439,Partner 0439,Bike,Kolkata,4.2,6
+DP0440,Partner 0440,EV Bike,Bengaluru,4.3,11
+DP0441,Partner 0441,EV Bike,Kolkata,4.4,35
+DP0442,Partner 0442,Cycle,Pune,4.9,4
+DP0443,Partner 0443,Bike,Delhi,4.0,29
+DP0444,Partner 0444,EV Bike,Jaipur,4.0,59
+DP0445,Partner 0445,Cycle,Pune,3.9,10
+DP0446,Partner 0446,EV Bike,Kolkata,3.8,51
+DP0447,Partner 0447,Bike,Bengaluru,3.8,29
+DP0448,Partner 0448,Bike,Delhi,3.6,38
+DP0449,Partner 0449,Bike,Delhi,4.3,1
+DP0450,Partner 0450,Scooter,Kolkata,4.9,40
+DP0451,Partner 0451,Scooter,Bengaluru,4.9,8
+DP0452,Partner 0452,Cycle,Mumbai,3.9,57
+DP0453,Partner 0453,Bike,Jaipur,4.1,38
+DP0454,Partner 0454,Bike,Delhi,4.6,17
+DP0455,Partner 0455,Scooter,Jaipur,4.4,19
+DP0456,Partner 0456,EV Bike,Bengaluru,4.2,33
+DP0457,Partner 0457,Cycle,Hyderabad,4.1,15
+DP0458,Partner 0458,EV Bike,Pune,4.6,45
+DP0459,Partner 0459,Bike,Delhi,3.8,31
+DP0460,Partner 0460,Scooter,Hyderabad,4.4,21
+DP0461,Partner 0461,EV Bike,Delhi,4.3,3
+DP0462,Partner 0462,Bike,Mumbai,4.2,2
+DP0463,Partner 0463,Bike,Kolkata,4.5,35
+DP0464,Partner 0464,Bike,Bengaluru,4.2,41
+DP0465,Partner 0465,Bike,Delhi,4.0,59
+DP0466,Partner 0466,Scooter,Bengaluru,4.2,16
+DP0467,Partner 0467,Bike,Chennai,3.6,56
+DP0468,Partner 0468,Bike,Delhi,4.4,45
+DP0469,Partner 0469,Bike,Mumbai,4.5,51
+DP0470,Partner 0470,Scooter,Mumbai,4.0,59
+DP0471,Partner 0471,Bike,Kolkata,3.9,50
+DP0472,Partner 0472,Scooter,Kolkata,4.0,21
+DP0473,Partner 0473,Bike,Hyderabad,4.2,12
+DP0474,Partner 0474,Bike,Mumbai,4.3,28
+DP0475,Partner 0475,Bike,Bengaluru,4.8,12
+DP0476,Partner 0476,Bike,Chennai,4.7,33
+DP0477,Partner 0477,Bike,Jaipur,4.5,20
+DP0478,Partner 0478,Bike,Mumbai,4.2,40
+DP0479,Partner 0479,EV Bike,Delhi,3.9,49
+DP0480,Partner 0480,Scooter,Jaipur,4.8,21
+DP0481,Partner 0481,Bike,Jaipur,4.1,60
+DP0482,Partner 0482,Bike,Mumbai,4.3,52
+DP0483,Partner 0483,Cycle,Chennai,4.4,54
+DP0484,Partner 0484,Scooter,Bengaluru,4.2,39
+DP0485,Partner 0485,Bike,Delhi,4.6,41
+DP0486,Partner 0486,Scooter,Hyderabad,4.4,49
+DP0487,Partner 0487,EV Bike,Hyderabad,4.5,59
+DP0488,Partner 0488,EV Bike,Hyderabad,4.4,42
+DP0489,Partner 0489,Bike,Kolkata,4.2,36
+DP0490,Partner 0490,Bike,Delhi,4.2,22
+DP0491,Partner 0491,Bike,Jaipur,4.2,26
+DP0492,Partner 0492,Cycle,Hyderabad,3.8,7
+DP0493,Partner 0493,Scooter,Kolkata,3.8,7
+DP0494,Partner 0494,Bike,Mumbai,4.5,8
+DP0495,Partner 0495,Cycle,Jaipur,3.8,26
+DP0496,Partner 0496,Cycle,Delhi,4.1,24
+DP0497,Partner 0497,Cycle,Delhi,3.8,24
+DP0498,Partner 0498,EV Bike,Delhi,4.0,40
+DP0499,Partner 0499,Cycle,Pune,4.1,48
+DP0500,Partner 0500,Bike,Kolkata,4.1,12
+DP0501,Partner 0501,EV Bike,Jaipur,3.7,47
+DP0502,Partner 0502,EV Bike,Bengaluru,4.1,8
+DP0503,Partner 0503,Bike,Pune,3.9,54
+DP0504,Partner 0504,Bike,Pune,4.0,9
+DP0505,Partner 0505,Cycle,Pune,4.5,3
+DP0506,Partner 0506,Bike,Bengaluru,4.5,54
+DP0507,Partner 0507,EV Bike,Pune,3.7,21
+DP0508,Partner 0508,Bike,Hyderabad,4.7,31
+DP0509,Partner 0509,Bike,Delhi,4.0,48
+DP0510,Partner 0510,Bike,Jaipur,4.0,47
+DP0511,Partner 0511,Bike,Jaipur,3.9,24
+DP0512,Partner 0512,Scooter,Delhi,4.2,4
+DP0513,Partner 0513,Scooter,Kolkata,4.9,20
+DP0514,Partner 0514,Bike,Mumbai,3.7,16
+DP0515,Partner 0515,Bike,Chennai,3.5,10
+DP0516,Partner 0516,Bike,Hyderabad,4.3,43
+DP0517,Partner 0517,Bike,Bengaluru,4.4,26
+DP0518,Partner 0518,EV Bike,Chennai,4.2,29
+DP0519,Partner 0519,Bike,Delhi,4.4,5
+DP0520,Partner 0520,Bike,Pune,3.8,11
+DP0521,Partner 0521,Bike,Jaipur,3.9,29
+DP0522,Partner 0522,Bike,Kolkata,4.2,45
+DP0523,Partner 0523,Bike,Kolkata,4.8,15
+DP0524,Partner 0524,Bike,Mumbai,4.4,6
+DP0525,Partner 0525,EV Bike,Mumbai,4.4,48
+DP0526,Partner 0526,Cycle,Delhi,3.8,15
+DP0527,Partner 0527,EV Bike,Hyderabad,4.3,43
+DP0528,Partner 0528,Bike,Kolkata,3.8,20
+DP0529,Partner 0529,Bike,Chennai,4.8,34
+DP0530,Partner 0530,Bike,Mumbai,3.8,60
+DP0531,Partner 0531,Scooter,Jaipur,3.9,60
+DP0532,Partner 0532,Cycle,Jaipur,3.7,2
+DP0533,Partner 0533,Bike,Delhi,4.2,44
+DP0534,Partner 0534,Bike,Hyderabad,4.2,16
+DP0535,Partner 0535,Scooter,Delhi,4.7,19
+DP0536,Partner 0536,EV Bike,Delhi,4.5,34
+DP0537,Partner 0537,EV Bike,Hyderabad,3.9,49
+DP0538,Partner 0538,Scooter,Hyderabad,4.5,14
+DP0539,Partner 0539,Cycle,Hyderabad,3.8,24
+DP0540,Partner 0540,Bike,Jaipur,3.9,28
+DP0541,Partner 0541,Cycle,Jaipur,4.2,48
+DP0542,Partner 0542,Cycle,Delhi,3.8,32
+DP0543,Partner 0543,EV Bike,Mumbai,4.6,37
+DP0544,Partner 0544,Bike,Bengaluru,5.0,10
+DP0545,Partner 0545,Bike,Bengaluru,4.1,49
+DP0546,Partner 0546,Bike,Delhi,4.0,45
+DP0547,Partner 0547,Bike,Delhi,4.2,48
+DP0548,Partner 0548,EV Bike,Mumbai,4.0,9
+DP0549,Partner 0549,Bike,Hyderabad,4.3,24
+DP0550,Partner 0550,Bike,Delhi,3.7,36
+DP0551,Partner 0551,EV Bike,Kolkata,4.3,56
+DP0552,Partner 0552,Bike,Jaipur,4.9,29
+DP0553,Partner 0553,Bike,Pune,3.5,60
+DP0554,Partner 0554,Bike,Hyderabad,3.8,29
+DP0555,Partner 0555,Scooter,Kolkata,4.0,58
+DP0556,Partner 0556,Bike,Jaipur,4.4,48
+DP0557,Partner 0557,EV Bike,Delhi,4.5,23
+DP0558,Partner 0558,Bike,Pune,4.5,27
+DP0559,Partner 0559,Cycle,Kolkata,3.6,31
+DP0560,Partner 0560,Bike,Chennai,4.0,43
+DP0561,Partner 0561,Bike,Mumbai,3.9,7
+DP0562,Partner 0562,Bike,Jaipur,4.2,49
+DP0563,Partner 0563,Bike,Pune,4.2,54
+DP0564,Partner 0564,Bike,Delhi,3.7,45
+DP0565,Partner 0565,Bike,Bengaluru,4.0,4
+DP0566,Partner 0566,Bike,Kolkata,4.4,14
+DP0567,Partner 0567,Scooter,Delhi,4.0,42
+DP0568,Partner 0568,Bike,Bengaluru,4.1,42
+DP0569,Partner 0569,Bike,Mumbai,4.8,10
+DP0570,Partner 0570,EV Bike,Mumbai,4.9,59
+DP0571,Partner 0571,Cycle,Hyderabad,3.4,44
+DP0572,Partner 0572,Bike,Kolkata,4.2,34
+DP0573,Partner 0573,Bike,Hyderabad,5.0,26
+DP0574,Partner 0574,Cycle,Bengaluru,4.4,23
+DP0575,Partner 0575,Bike,Bengaluru,4.2,9
+DP0576,Partner 0576,Cycle,Mumbai,4.7,37
+DP0577,Partner 0577,Bike,Pune,4.3,8
+DP0578,Partner 0578,EV Bike,Bengaluru,4.4,53
+DP0579,Partner 0579,Bike,Bengaluru,4.1,14
+DP0580,Partner 0580,Cycle,Kolkata,4.3,7
+DP0581,Partner 0581,Bike,Pune,4.3,7
+DP0582,Partner 0582,Scooter,Hyderabad,4.5,9
+DP0583,Partner 0583,Bike,Hyderabad,4.0,3
+DP0584,Partner 0584,Bike,Bengaluru,4.0,14
+DP0585,Partner 0585,EV Bike,Kolkata,3.5,17
+DP0586,Partner 0586,Bike,Hyderabad,4.1,50
+DP0587,Partner 0587,Cycle,Hyderabad,4.5,44
+DP0588,Partner 0588,Bike,Chennai,4.4,22
+DP0589,Partner 0589,EV Bike,Kolkata,3.9,46
+DP0590,Partner 0590,Bike,Hyderabad,3.5,26
+DP0591,Partner 0591,Cycle,Mumbai,4.2,58
+DP0592,Partner 0592,Cycle,Delhi,4.5,28
+DP0593,Partner 0593,Bike,Bengaluru,4.0,45
+DP0594,Partner 0594,EV Bike,Jaipur,3.7,14
+DP0595,Partner 0595,EV Bike,Bengaluru,4.0,9
+DP0596,Partner 0596,Bike,Mumbai,4.3,51
+DP0597,Partner 0597,Scooter,Jaipur,4.6,26
+DP0598,Partner 0598,Bike,Delhi,4.1,2
+DP0599,Partner 0599,EV Bike,Delhi,4.6,11
+DP0600,Partner 0600,Bike,Mumbai,4.5,17
+DP0601,Partner 0601,Bike,Pune,3.8,34
+DP0602,Partner 0602,Bike,Pune,4.6,19
+DP0603,Partner 0603,Scooter,Delhi,4.3,39
+DP0604,Partner 0604,EV Bike,Pune,3.8,18
+DP0605,Partner 0605,Cycle,Pune,4.8,13
+DP0606,Partner 0606,Bike,Pune,4.2,5
+DP0607,Partner 0607,Bike,Delhi,3.5,50
+DP0608,Partner 0608,Scooter,Jaipur,4.0,23
+DP0609,Partner 0609,Scooter,Pune,3.9,58
+DP0610,Partner 0610,Bike,Jaipur,4.0,56
+DP0611,Partner 0611,Bike,Bengaluru,4.0,24
+DP0612,Partner 0612,Bike,Chennai,4.1,29
+DP0613,Partner 0613,Bike,Delhi,4.1,48
+DP0614,Partner 0614,EV Bike,Mumbai,4.2,47
+DP0615,Partner 0615,Bike,Pune,4.4,8
+DP0616,Partner 0616,EV Bike,Hyderabad,3.9,26
+DP0617,Partner 0617,Bike,Delhi,4.6,15
+DP0618,Partner 0618,Bike,Kolkata,3.8,57
+DP0619,Partner 0619,EV Bike,Mumbai,4.4,1
+DP0620,Partner 0620,Scooter,Chennai,4.8,28
+DP0621,Partner 0621,Bike,Bengaluru,4.1,49
+DP0622,Partner 0622,Scooter,Jaipur,4.3,47
+DP0623,Partner 0623,Bike,Jaipur,3.9,46
+DP0624,Partner 0624,EV Bike,Kolkata,4.0,14
+DP0625,Partner 0625,Bike,Mumbai,4.7,42
+DP0626,Partner 0626,Scooter,Pune,4.5,34
+DP0627,Partner 0627,Bike,Hyderabad,4.3,59
+DP0628,Partner 0628,Bike,Pune,3.5,31
+DP0629,Partner 0629,Cycle,Mumbai,3.9,6
+DP0630,Partner 0630,EV Bike,Delhi,4.8,49
+DP0631,Partner 0631,Bike,Kolkata,4.3,5
+DP0632,Partner 0632,Bike,Hyderabad,4.4,31
+DP0633,Partner 0633,Bike,Jaipur,4.3,37
+DP0634,Partner 0634,Scooter,Kolkata,4.0,15
+DP0635,Partner 0635,EV Bike,Kolkata,4.3,15
+DP0636,Partner 0636,Scooter,Hyderabad,3.7,52
+DP0637,Partner 0637,Bike,Jaipur,3.6,43
+DP0638,Partner 0638,EV Bike,Jaipur,3.9,5
+DP0639,Partner 0639,Bike,Mumbai,4.3,28
+DP0640,Partner 0640,Bike,Chennai,3.7,33
+DP0641,Partner 0641,Scooter,Chennai,4.2,11
+DP0642,Partner 0642,Cycle,Pune,3.9,43
+DP0643,Partner 0643,EV Bike,Mumbai,3.9,6
+DP0644,Partner 0644,Scooter,Hyderabad,4.7,23
+DP0645,Partner 0645,Scooter,Mumbai,4.2,40
+DP0646,Partner 0646,Cycle,Hyderabad,3.9,2
+DP0647,Partner 0647,Bike,Kolkata,4.3,15
+DP0648,Partner 0648,Bike,Pune,3.7,23
+DP0649,Partner 0649,Cycle,Delhi,4.3,22
+DP0650,Partner 0650,EV Bike,Kolkata,4.6,9
+DP0651,Partner 0651,Bike,Jaipur,4.4,47
+DP0652,Partner 0652,Bike,Delhi,5.0,40
+DP0653,Partner 0653,Bike,Mumbai,3.5,30
+DP0654,Partner 0654,Bike,Hyderabad,4.2,16
+DP0655,Partner 0655,Cycle,Delhi,3.7,59
+DP0656,Partner 0656,Bike,Kolkata,4.1,46
+DP0657,Partner 0657,EV Bike,Hyderabad,4.2,47
+DP0658,Partner 0658,Bike,Pune,5.0,52
+DP0659,Partner 0659,Bike,Kolkata,4.2,30
+DP0660,Partner 0660,Bike,Jaipur,4.2,45
+DP0661,Partner 0661,EV Bike,Mumbai,4.6,9
+DP0662,Partner 0662,Scooter,Hyderabad,4.2,1
+DP0663,Partner 0663,Scooter,Mumbai,4.8,59
+DP0664,Partner 0664,Bike,Hyderabad,4.4,38
+DP0665,Partner 0665,Bike,Kolkata,4.5,8
+DP0666,Partner 0666,Bike,Chennai,3.5,59
+DP0667,Partner 0667,Bike,Chennai,4.9,59
+DP0668,Partner 0668,Scooter,Hyderabad,4.0,52
+DP0669,Partner 0669,Scooter,Pune,4.2,18
+DP0670,Partner 0670,Scooter,Mumbai,4.0,27
+DP0671,Partner 0671,Bike,Jaipur,3.8,18
+DP0672,Partner 0672,Bike,Bengaluru,3.8,32
+DP0673,Partner 0673,Bike,Hyderabad,4.2,58
+DP0674,Partner 0674,Bike,Hyderabad,3.5,49
+DP0675,Partner 0675,EV Bike,Chennai,4.1,32
+DP0676,Partner 0676,Scooter,Delhi,4.6,53
+DP0677,Partner 0677,Bike,Kolkata,4.4,48
+DP0678,Partner 0678,Bike,Chennai,4.4,45
+DP0679,Partner 0679,EV Bike,Mumbai,3.9,54
+DP0680,Partner 0680,Scooter,Chennai,3.6,36
+DP0681,Partner 0681,Scooter,Bengaluru,4.6,36
+DP0682,Partner 0682,Bike,Pune,4.0,21
+DP0683,Partner 0683,Bike,Kolkata,4.2,46
+DP0684,Partner 0684,Cycle,Bengaluru,4.1,32
+DP0685,Partner 0685,EV Bike,Pune,4.4,31
+DP0686,Partner 0686,Bike,Bengaluru,4.8,37
+DP0687,Partner 0687,EV Bike,Jaipur,4.7,16
+DP0688,Partner 0688,EV Bike,Kolkata,3.4,46
+DP0689,Partner 0689,Bike,Chennai,4.1,46
+DP0690,Partner 0690,Bike,Bengaluru,3.7,14
+DP0691,Partner 0691,Bike,Chennai,4.5,57
+DP0692,Partner 0692,Bike,Kolkata,4.2,24
+DP0693,Partner 0693,Scooter,Chennai,4.4,25
+DP0694,Partner 0694,Bike,Mumbai,4.1,46
+DP0695,Partner 0695,EV Bike,Chennai,3.8,51
+DP0696,Partner 0696,Cycle,Delhi,3.9,35
+DP0697,Partner 0697,Bike,Bengaluru,3.7,17
+DP0698,Partner 0698,Bike,Kolkata,3.8,46
+DP0699,Partner 0699,EV Bike,Hyderabad,3.7,42
+DP0700,Partner 0700,EV Bike,Hyderabad,3.8,45
