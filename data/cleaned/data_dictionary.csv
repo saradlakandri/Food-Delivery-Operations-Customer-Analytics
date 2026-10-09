@@ -1,0 +1,17 @@
+File,Column,Description,Type
+customers.csv,Customer_ID,Unique customer identifier,Key
+customers.csv,Customer_Segment,Customer segment assigned by business,Dimension
+restaurants.csv,Restaurant_ID,Unique restaurant identifier,Key
+restaurants.csv,Restaurant_Rating,Restaurant rating from customers,Measure
+orders.csv,Order_ID,Unique order identifier,Key
+orders.csv,Order_Date,Date the order was placed,Date
+orders.csv,Order_Status,Delivered or Cancelled,Dimension
+orders.csv,Food_Amount,Food value before fees and discount,Measure
+orders.csv,Discount,Discount applied to the order,Measure
+orders.csv,Final_Amount,Final amount charged after discount and fee,Measure
+deliveries.csv,Order_ID,Order linked to delivery,Foreign Key
+deliveries.csv,Estimated_Delivery_Min,Estimated delivery duration,Measure
+deliveries.csv,Actual_Delivery_Min,Actual delivery duration,Measure
+deliveries.csv,Delivery_Status,On Time or Delayed,Dimension
+delivery_partners.csv,Delivery_Partner_ID,Unique delivery partner identifier,Key
+reviews.csv,Rating,Customer rating for the order,Measure
