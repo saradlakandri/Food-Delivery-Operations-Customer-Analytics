@@ -1,0 +1,17 @@
+create database food_delivery_analytics;
+use food_delivery_analytics;
+select database();
+SELECT COUNT(*) FROM customers;
+SELECT * FROM customers LIMIT 5;
+SELECT COUNT(*) FROM restaurants;
+SELECT * FROM restaurants LIMIT 5;
+SELECT COUNT(*) FROM orders;
+SELECT * FROM orders LIMIT 10;
+SELECT COUNT(*) FROM deliveries;
+SELECT * FROM deliveries LIMIT 5;
+SELECT COUNT(*) FROM data_dictionary;
+SELECT * FROM data_dictionary LIMIT 5;
+SELECT COUNT(*) FROM delivery_partners;
+SELECT * FROM delivery_partners LIMIT 5;
+SELECT COUNT(*) FROM reviews;
+SELECT * FROM reviews LIMIT 5;
