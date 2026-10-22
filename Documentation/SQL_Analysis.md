@@ -296,3 +296,179 @@ Comparing estimated and actual duration across distance bands can help identify 
 ### 17. Next Analysis Area: Customer Satisfaction
 
 The next planned task is to analyse the `reviews` table, beginning with average customer rating and then examining the distribution of ratings. Results will be added after the SQL queries have been run and verified.
+
+### 18. Customer Satisfaction Analysis
+
+**Objective**
+
+Analyse customer ratings to understand satisfaction with the food delivery service.
+
+**Business Question**
+
+What ratings are customers giving, and what does the rating distribution tell us about customer satisfaction?
+
+**Business Relevance**
+
+Identify satisfaction patterns and potential areas for service improvement.
+
+#### 18.1 Average Customer Rating
+
+**Approach**
+
+Used the `AVG()` aggregate function on the `Rating` column in the `reviews` table.
+
+**Result**
+
+The average recorded customer rating was approximately **3.86 out of 5**.
+
+**Business Insight**
+
+The average rating establishes an overall customer-rating baseline. However, the average alone does not show whether ratings are concentrated around the middle or split between very high and very low scores.
+
+#### 18.2 Customer Rating Distribution
+
+**Approach**
+
+Counted review records for each recorded rating using `COUNT()` and `GROUP BY`, then sorted the results in ascending order of rating.
+
+**Results**
+
+| Rating | Number of Reviews |
+|---:|---:|
+| 0 | 12 |
+| 1 | 1,406 |
+| 2 | 2,756 |
+| 3 | 5,443 |
+| 4 | 14,258 |
+| 5 | 10,496 |
+| 6 | 8 |
+| **Total** | **34,379** |
+
+**Observations**
+
+- Rating 4 was the most frequent, with 14,258 reviews.
+- Rating 5 was the second most frequent, with 10,496 reviews.
+- The dataset contains 12 reviews rated 0 and 8 reviews rated 6, although the expected rating scale appears to be 1-5
+
+**Data Quality Note**
+
+The 20 records with ratings outside the expected 1-5 range require investigation before final satisfaction percentages are reported. The original data should not be changed without establishing an appropriate correction or exclusion rule.
+
+#### 18.3 Rating Data Quality Check
+
+**Objective**
+
+Investigate reviews with ratings outside the expected 1–5 scale.
+
+**Approach**
+
+Filtered the `reviews` table for ratings below 1 or above 5, then counted the records for each unexpected rating.
+
+**Results**
+
+| Rating | Number of Reviews |
+|---:|---:|
+| 0 | 12 |
+| 6 | 8 |
+| **Total** | **20** |
+
+**Observation**
+
+Out of 34,379 reviews, 20 records (approximately 0.06%) contain ratings outside the expected 1–5 range.
+
+**Business Insight**
+
+Although these records represent a small proportion of the dataset, they should be investigated before final customer satisfaction reporting.
+
+**Limitation**
+
+The available analysis confirms that these ratings are outside the expected range but does not establish why they occurred. The original records should remain unchanged until an appropriate handling rule is determined.
+
+#### 18.4 Customer Satisfaction by Rating Category
+
+**Objective**
+
+Analyse average customer ratings across different review categories.
+
+**Approach**
+
+Grouped reviews by `Review_Category` and calculated the average `Rating`, including only ratings between 1 and 5. The original rating data was left unchanged.
+
+**Results**
+
+| Review Category | Average Rating |
+|---|---:|
+| Food Quality | 3.86 |
+| Delivery | 3.87 |
+| Overall | 3.87 |
+| Packaging | 3.86 |
+
+**Business Insights**
+
+- Delivery and Overall received the highest average ratings at 3.87.
+- Food Quality and Packaging averaged 3.86.
+- The average ratings are very similar across all four categories.
+
+**Limitation**
+
+The averages are rounded to two decimal places. The small differences do not establish a meaningful performance gap between categories. Further analysis of low ratings may help identify specific service issues.
+
+#### 18.5 Low-Rating Analysis
+
+**Objective**
+
+Identify review categories with higher numbers of low ratings.
+
+**Approach**
+
+Counted reviews rated 1 or 2 in each `Review_Category`, including only valid ratings between 1 and 5.
+
+**Results**
+
+| Review Category | Low-Rated Reviews (1–2) |
+|---|---:|
+| Food Quality | 1,473 |
+| Overall | 1,051 |
+| Delivery | 1,015 |
+| Packaging | 623 |
+| **Total** | **4,162** |
+
+**Business Insights**
+
+Food Quality had the highest number of low-rated reviews, followed by Overall, Delivery, and Packaging.
+
+**Limitation**
+
+These are raw counts and do not account for differences in total review volume by category. A category with more reviews may naturally have more low-rated reviews.
+
+**Next Step**
+
+Calculate the percentage of low-rated reviews within each category to enable a fairer comparison.
+
+#### 18.6 Low-Rating Percentage by Category
+
+**Objective**
+
+Compare the proportion of low ratings across review categories.
+
+**Approach**
+
+Used conditional aggregation to count reviews rated 1 or 2, divided by the total valid reviews in each category, and multiplied by 100. Only ratings between 1 and 5 were included.
+
+**Results**
+
+| Review Category | Total Valid Reviews | Low-Rated Reviews (1–2) | Low-Rating Percentage |
+|---|---:|---:|---:|
+| Food Quality | 11,963 | 1,473 | 12.31% |
+| Overall | 8,656 | 1,051 | 12.14% |
+| Delivery | 8,546 | 1,015 | 11.88% |
+| Packaging | 5,194 | 623 | 11.99% |
+| **Total** | **34,359** | **4,162** | **12.12%** |
+
+**Business Insights**
+
+Food Quality had the highest low-rating percentage at 12.31%, while Delivery had the lowest at 11.88%. The differences between categories are small, so the results should be interpreted cautiously.
+
+**Business Relevance**
+
+These percentages allow a fairer comparison than raw counts alone and can help identify service areas for further investigation.

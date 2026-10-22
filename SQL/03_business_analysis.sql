@@ -243,24 +243,238 @@ WHERE
 -- Business Relevance: Understand distance-related delivery patterns to support delivery planning and operational efficiency.
 
 SELECT 
-    -- Distance_KM,
-    
-    case
-		when Distance_KM <= 2 then 'Short'
-        when Distance_KM <= 5 then 'Medium'
-        when Distance_KM <= 8 then 'Long'
-        Else 'Very Long' 
-	END as Distance_Band,
-    count(Actual_Delivery_Min) as Deliveries,
-    round(avg(Estimated_Delivery_Min),0) as Avg_Estimated_time,
-    round(avg(Actual_Delivery_Min),0) as Avg_Actual_time
+    CASE
+        WHEN Distance_KM <= 2 THEN 'Short'
+        WHEN Distance_KM <= 5 THEN 'Medium'
+        WHEN Distance_KM <= 8 THEN 'Long'
+        ELSE 'Very Long'
+    END AS Distance_Band,
+    COUNT(Actual_Delivery_Min) AS Deliveries,
+    ROUND(AVG(Estimated_Delivery_Min), 0) AS Avg_Estimated_time,
+    ROUND(AVG(Actual_Delivery_Min), 0) AS Avg_Actual_time
 FROM
     deliveries
-Group By Distance_Band
-order by Distance_Band
+GROUP BY Distance_Band
+ORDER BY Distance_Band;
 
 -- Task 5.5: Delivery Performance by Distance
 -- Approach: Grouped deliveries into distance bands using CASE. Calculated delivery count, average estimated time, and average actual time.
 -- Result: Average estimated delivery time ranged from 42 to 43 minutes, while average actual delivery time ranged from 57 to 60 minutes.
 -- Business Insight: Actual delivery time exceeded estimated time across all distance bands. Very Long deliveries had the largest average gap, at approximately 17 minutes.
 -- Business Relevance: Review delivery estimates and investigate other operational factors that may contribute to delays.
+
+-- _______________________________________________________________________________________________________________________________________________________
+-- Task 6: Customer Satisfaction Analysis
+-- Objective: Analyse customer ratings and understand satisfaction patterns.
+-- Business Question: What ratings are customers giving to the service?
+-- Business Relevance: Identify customer satisfaction patterns and potential areas for service improvement.
+
+SELECT 
+    *
+FROM
+    reviews;
+
+SELECT 
+    ROUND(AVG(Rating), 2) AS Avg_Rating
+FROM
+    reviews;
+
+-- Task 6.1: Average Customer Rating
+-- Objective: Calculate the average rating across all customer reviews.
+-- Approach: Use AVG() on the Rating column in the reviews table.
+-- Result: Average customer rating is approximately 3.86 out of 5.
+-- Business Insight: Establishes an overall customer-rating baseline.
+-- Limitation: The average alone does not show how ratings are distributed.
+
+
+-- Task 6.2: Customer Rating Distribution
+-- Objective: Analyse the frequency of each customer rating.
+-- Business Question: How are reviews distributed across ratings from 1 to 5?
+-- Business Relevance: Identify the proportion of low, middle, and high ratings
+-- to better understand customer satisfaction patterns.
+
+SELECT 
+    rating AS Rating, COUNT(Review_ID) AS No_Reviews
+FROM
+    reviews
+GROUP BY rating
+ORDER BY No_Reviews;
+    
+    
+    -- Task 6.2: Customer Rating Distribution
+-- Approach: Counted reviews for each recorded rating and sorted by rating.
+-- Result: Rating 4 was the most frequent (14,258 reviews), followed by rating 5 (10,496 reviews).
+-- Data Quality Finding: 12 reviews have rating 0 and 8 reviews have rating 6.
+-- Business Insight: High ratings are common, but unexpected rating values must be investigated before final satisfaction reporting.
+
+
+-- Task 6.3: Rating Data Quality Check
+-- Objective: Investigate reviews with ratings outside the expected 1–5 scale.
+-- Business Question: Which review records contain unexpected rating values?
+-- Business Relevance: Identify records that may need correction or exclusion
+-- before reporting customer satisfaction.
+
+SELECT 
+    Rating, count(Rating)
+FROM
+    reviews
+WHERE
+    Rating > 5 OR Rating < 1
+    group by Rating;
+    
+-- Task 6.3: Rating Data Quality Check
+-- Approach: Counted reviews with ratings below 1 or above 5.
+-- Result: 12 reviews have rating 0, and 8 reviews have rating 6.
+-- Total: 20 out of 34,379 reviews (approximately 0.06%).
+-- Data Quality Finding: These ratings fall outside the expected 1–5 scale. 
+-- Next Step: Investigate the records before deciding whether to correct or exclude them from customer satisfaction reporting.
+
+-- Task 6.4: Customer Satisfaction by Rating Category
+-- Objective: Analyse average customer ratings across different review categories.
+-- Business Question: Which aspects of the service receive higher or lower ratings?
+-- Business Relevance: Identify service areas that may need improvement.
+-- Approach: Calculate the average rating for each Review_Category. Data Quality Rule: Include only ratings between 1 and 5.
+-- Note: Keep the original rating data unchanged.
+
+Select *
+from reviews;
+
+
+SELECT 
+    Review_Category, ROUND(AVG(Rating), 2) AS Avg_Rating
+FROM
+    reviews
+WHERE
+    Rating > 0 AND Rating < 6
+GROUP BY Review_Category
+ORDER BY Avg_Rating;
+
+-- Task 6.4: Customer Satisfaction by Rating Category
+-- Approach: Calculated average ratings for each Review_Category.
+-- Data Quality Rule: Included only ratings between 1 and 5.
+-- Results: Delivery and Overall averaged 3.87; Food Quality and Packaging averaged 3.86.
+-- Business Insight: Average ratings are similar across all four categories.
+-- Business Relevance: Further analysis of low ratings may help identify specific service issues that need attention.
+
+
+-- Task 6.5: Low-Rating Analysis
+-- Objective: Identify review categories with higher numbers of low ratings.
+-- Business Question: How many reviews are rated 1 or 2 in each category?
+-- Business Relevance: Identify service areas that may require improvement.
+-- Data Quality Rule: Include only ratings between 1 and 5.
+
+SELECT 
+    Review_Category, COUNT(rating) AS No_of_Reviews
+FROM
+    Reviews
+WHERE
+    Rating > 0 AND Rating < 3
+GROUP BY Review_Category
+ORDER BY No_of_Reviews DESC;
+
+
+-- Task 6.5: Low-Rating Analysis
+-- Approach: Counted reviews rated 1 or 2 for each Review_Category.
+-- Data Quality Rule: Included only ratings between 1 and 5.
+-- Result: Food Quality had 1,473 low-rated reviews, followed by Overall with 1,051, Delivery with 1,015, and Packaging with 623.
+-- Business Insight: Food Quality had the highest number of low-rated reviews.
+-- Limitation: Counts alone do not account for differences in total review volume.
+-- Next Step: Compare low-rating percentages across categories.
+
+-- Task 6.6: Low-Rating Percentage by Category
+-- Objective: Compare the proportion of low ratings across review categories.
+-- Business Question: Which service category has the highest percentage of reviews rated 1 or 2?
+-- Business Relevance: Compare categories fairly despite differences in review volume and identify potential service improvement priorities.
+-- Data Quality Rule: Include only ratings between 1 and 5.
+
+SELECT 
+    Review_Category,
+    COUNT(rating) AS Total_Valid_Reviews,
+    SUM(CASE
+        WHEN Rating IN (1 , 2) THEN 1
+        ELSE 0
+    END) AS Low_Rating_Count_1_2,
+    round((SUM(CASE
+        WHEN Rating IN (1 , 2) THEN 1
+        ELSE 0
+    END)/COUNT(rating))*100,2) as Low_Rating_Percentage
+FROM
+    Reviews
+WHERE
+    Rating > 0 AND Rating < 6
+GROUP BY Review_Category
+ORDER BY Total_Valid_Reviews DESC;
+
+-- Task 6.6: Low-Rating Percentage by Category
+-- Approach: Used conditional aggregation to count ratings of 1 or 2, then divided by the total valid reviews in each category.
+-- Result: Food Quality had the highest low-rating percentage at 12.31%, followed by Overall at 12.14%, Packaging at 11.99%, and Delivery at 11.88%.
+-- Business Insight: Food Quality has the highest proportion of low ratings, although the differences between categories are small.
+-- Business Relevance: Use these percentages to help prioritise further investigation into potential service-quality issues.
+
+-- Task 6.7: High-Rating Analysis
+-- Objective: Measure the proportion of high ratings across review categories.
+-- Business Question: Which categories receive the highest percentage of ratings 4 or 5?
+-- Business Relevance: Identify service areas where customer feedback is strongest.
+-- Data Quality Rule: Include only ratings between 1 and 5.
+
+SELECT 
+    Review_Category,
+    COUNT(rating) AS Total_Valid_Reviews,
+    SUM(CASE
+        WHEN rating IN (4 , 5) THEN 1
+        ELSE 0
+    END) AS High_rating_counts_4_5,
+    ROUND((SUM(CASE
+                WHEN rating IN (4 , 5) THEN 1
+                ELSE 0
+            END)) / (COUNT(rating)) * 100,
+            2) AS High_Rating_Percentage
+FROM
+    reviews
+WHERE
+    rating > 0 AND rating < 6
+GROUP BY Review_Category
+ORDER BY Total_Valid_Reviews DESC;
+    
+ -- Task 6.7: High-Rating Analysis
+-- Approach: Used conditional aggregation to count reviews rated 4 or 5 and calculated the percentage within each review category.
+-- Data Quality Rule: Included only ratings between 1 and 5.
+-- Result: Overall had the highest high-rating percentage at 72.42%,followed by Packaging at 72.20%, Food Quality at 71.85%, and Delivery at 71.85%.
+-- Business Insight: Approximately 72.05% of all valid reviews received a rating of 4 or 5 
+-- Business Relevance: Identify service areas with stronger customer feedback and compare them with low-rating results.   
+
+-- Task 6.8: Comparison of High and Low Ratings
+-- Objective: Compare high and low customer ratings across review categories.
+-- Business Question: Which categories have a stronger proportion of high ratings compared with low ratings?
+-- Business Relevance: Identify service areas with stronger customer feedback and areas that may need improvement.
+-- Data Quality Rule: Include only ratings between 1 and 5.
+-- Approach: Calculate the count and percentage of high ratings (4–5) and low ratings (1–2) for each Review_Category.
+-- Expected Output: Review category, total valid reviews, high-rating count, high-rating percentage, low-rating count, and low-rating percentage.
+
+SELECT 
+    Review_Category,
+    COUNT(rating) AS Total_Valid_Reviews,
+    SUM(CASE
+        WHEN Rating IN (1 , 2) THEN 1
+        ELSE 0
+    END) AS Low_Rating_Count,
+    SUM(CASE
+        WHEN Rating IN (4 , 5) THEN 1
+        ELSE 0
+    END) AS High_Rating_Count,
+    ROUND((SUM(CASE
+                WHEN Rating IN (1 , 2) THEN 1
+                ELSE 0
+            END) / COUNT(rating)) * 100,
+            2) AS Low_Rating,
+    ROUND((SUM(CASE
+                WHEN rating IN (4 , 5) THEN 1
+                ELSE 0
+            END) / COUNT(rating)) * 100,
+            2) AS High_Rating
+FROM
+    Reviews
+WHERE
+    Rating > 0 AND Rating < 6
+GROUP BY Review_Category
+ORDER BY Total_Valid_Reviews DESC;
