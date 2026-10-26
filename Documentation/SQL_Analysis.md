@@ -41,7 +41,7 @@ All seven tables were loaded into MySQL Workbench. The imported record counts we
 
 ### 5. SQL Analysis Progress
 
-Database loading and the first round of business analysis are complete through Task 5.5. Analysis has covered order volume and status, final order amounts, average order value, monthly order trends, delivery delay, and delivery performance by distance. Customer satisfaction analysis is the next planned area.
+SQL analysis has been completed for order volume and status, final order amounts, average order value, monthly order trends, delivery performance, and customer satisfaction. Restaurant performance analysis is now underway, beginning with order volume and followed by delivered-order value and cancellation rate.
 
 ### 6. Business Analysis Areas
 
@@ -293,11 +293,7 @@ The results do not show a steady increase in average actual delivery time across
 
 Comparing estimated and actual duration across distance bands can help identify where delivery estimates or operations may warrant further investigation.
 
-### 17. Next Analysis Area: Customer Satisfaction
-
-The next planned task is to analyse the `reviews` table, beginning with average customer rating and then examining the distribution of ratings. Results will be added after the SQL queries have been run and verified.
-
-### 18. Customer Satisfaction Analysis
+### 17. Customer Satisfaction Analysis
 
 **Objective**
 
@@ -311,7 +307,7 @@ What ratings are customers giving, and what does the rating distribution tell us
 
 Identify satisfaction patterns and potential areas for service improvement.
 
-#### 18.1 Average Customer Rating
+#### 17.1 Average Customer Rating
 
 **Approach**
 
@@ -325,7 +321,7 @@ The average recorded customer rating was approximately **3.86 out of 5**.
 
 The average rating establishes an overall customer-rating baseline. However, the average alone does not show whether ratings are concentrated around the middle or split between very high and very low scores.
 
-#### 18.2 Customer Rating Distribution
+#### 17.2 Customer Rating Distribution
 
 **Approach**
 
@@ -354,7 +350,7 @@ Counted review records for each recorded rating using `COUNT()` and `GROUP BY`, 
 
 The 20 records with ratings outside the expected 1-5 range require investigation before final satisfaction percentages are reported. The original data should not be changed without establishing an appropriate correction or exclusion rule.
 
-#### 18.3 Rating Data Quality Check
+#### 17.3 Rating Data Quality Check
 
 **Objective**
 
@@ -384,7 +380,7 @@ Although these records represent a small proportion of the dataset, they should 
 
 The available analysis confirms that these ratings are outside the expected range but does not establish why they occurred. The original records should remain unchanged until an appropriate handling rule is determined.
 
-#### 18.4 Customer Satisfaction by Rating Category
+#### 17.4 Customer Satisfaction by Rating Category
 
 **Objective**
 
@@ -413,7 +409,7 @@ Grouped reviews by `Review_Category` and calculated the average `Rating`, includ
 
 The averages are rounded to two decimal places. The small differences do not establish a meaningful performance gap between categories. Further analysis of low ratings may help identify specific service issues.
 
-#### 18.5 Low-Rating Analysis
+#### 17.5 Low-Rating Analysis
 
 **Objective**
 
@@ -445,7 +441,7 @@ These are raw counts and do not account for differences in total review volume b
 
 Calculate the percentage of low-rated reviews within each category to enable a fairer comparison.
 
-#### 18.6 Low-Rating Percentage by Category
+#### 17.6 Low-Rating Percentage by Category
 
 **Objective**
 
@@ -472,3 +468,130 @@ Food Quality had the highest low-rating percentage at 12.31%, while Delivery had
 **Business Relevance**
 
 These percentages allow a fairer comparison than raw counts alone and can help identify service areas for further investigation.
+
+#### 17.7 High-Rating Analysis
+
+**Objective**
+
+Measure the proportion of high ratings across review categories.
+
+**Approach**
+
+Used conditional aggregation to count reviews rated 4 or 5, divided by the total valid reviews in each category, and multiplied by 100. Only ratings between 1 and 5 were included.
+
+**Results**
+
+| Review Category | Total Valid Reviews | High-Rated Reviews (4–5) | High-Rating Percentage |
+|---|---:|---:|---:|
+| Food Quality | 11,963 | 8,595 | 71.85% |
+| Overall | 8,656 | 6,269 | 72.42% |
+| Delivery | 8,546 | 6,140 | 71.85% |
+| Packaging | 5,194 | 3,750 | 72.20% |
+| **Total** | **34,359** | **24,754** | **72.05%** |
+
+**Business Insights**
+
+Overall had the highest high-rating percentage at 72.42%, while Food Quality and Delivery each recorded 71.85%. Approximately 72.05% of all valid reviews were rated 4 or 5.
+
+**Business Relevance**
+
+High-rating percentages help identify categories receiving stronger customer feedback. Comparing these results with the low-rating percentages provides a more balanced view of customer satisfaction.
+
+
+#### 17.8 Comparison of High and Low Ratings
+
+**Objective**
+
+Compare high and low customer ratings across review categories.
+
+**Approach**
+
+Calculated total valid reviews, counts of ratings 1–2 and 4–5, and their percentages for each review category. Only ratings between 1 and 5 were included.
+
+**Results**
+
+| Review Category | Total Valid Reviews | Low-Rated (1–2) | High-Rated (4–5) | Low-Rating % | High-Rating % |
+|---|---:|---:|---:|---:|---:|
+| Food Quality | 11,963 | 1,473 | 8,595 | 12.31% | 71.85% |
+| Overall | 8,656 | 1,051 | 6,269 | 12.14% | 72.42% |
+| Delivery | 8,546 | 1,015 | 6,140 | 11.88% | 71.85% |
+| Packaging | 5,194 | 623 | 3,750 | 11.99% | 72.20% |
+
+**Business Insights**
+
+- Overall had the highest high-rating percentage at 72.42%.
+- Food Quality had the highest low-rating percentage at 12.31%.
+- Delivery had the lowest low-rating percentage at 11.88%.
+- The differences between categories were relatively small.
+
+**Business Relevance**
+
+Comparing high and low ratings provides a balanced view of customer feedback and helps identify categories for further investigation.
+
+**Limitation**
+
+These results describe the recorded ratings. They do not establish the reasons behind customer satisfaction or dissatisfaction.
+
+
+### Task 18 Restaurant Performance Analysis
+
+#### Task 18.1 Top 10 Restaurants by Order Volume
+
+**Objective:** Identify restaurants receiving the highest number of orders.
+
+**Approach:** Joined the `orders` and `restaurants` tables using `Restaurant_ID`, counted orders for each restaurant, sorted the results in descending order, and selected the top 10.
+
+**Key Findings:**
+- Urban House 150 and Street Hub 065 ranked jointly first, with 282 orders each.
+- Spice Kitchen 178 ranked third with 276 orders.
+- The top 10 restaurants recorded between 266 and 282 orders each.
+
+**Business Insight:** Order volume helps identify restaurants with high customer demand. Further analysis of completed-order value and cancellation rates is required before drawing conclusions about overall restaurant performance.
+
+**Limitation:** This analysis includes all order statuses, including cancelled orders. A high order count does not necessarily mean high completed sales or profitability.
+
+#### 18.2 Restaurant Performance Comparison
+
+**Objective**
+
+Compare restaurant order volume, delivered and cancelled orders, delivered-order value, and cancellation rate.
+
+**Approach**
+
+Joined the `orders` and `restaurants` tables using `Restaurant_ID`. Used conditional aggregation to count delivered and cancelled orders, calculated delivered-order value using `Final_Amount` for delivered orders only, and calculated cancellation rate as cancelled orders divided by total orders multiplied by 100. Results were sorted by total order volume in descending order, with delivered-order value as the secondary sort, and limited to the top 10 restaurants.
+
+**Results**
+
+| Restaurant | Total Orders | Delivered Orders | Cancelled Orders | Delivered-Order Value | Cancellation Rate |
+|---|---:|---:|---:|---:|---:|
+| Urban House 150 | 282 | 265 | 17 | 131,340.72 | 6.03% |
+| Street Hub 065 | 282 | 258 | 24 | 121,169.24 | 8.51% |
+| Spice Kitchen 178 | 276 | 254 | 22 | 116,588.42 | 7.97% |
+| Taste Bites 078 | 274 | 262 | 12 | 119,727.52 | 4.38% |
+| Urban Kitchen 085 | 271 | 250 | 21 | 113,452.37 | 7.75% |
+| Food Kitchen 019 | 269 | 248 | 21 | 126,210.86 | 7.81% |
+| Street Bites 164 | 268 | 242 | 26 | 123,324.25 | 9.70% |
+| Urban Kitchen 102 | 268 | 257 | 11 | 122,406.71 | 4.10% |
+| Food Hub 243 | 268 | 246 | 22 | 122,051.26 | 8.21% |
+| Urban Bites 143 | 266 | 245 | 21 | 123,854.04 | 7.89% |
+
+**Business Insights**
+
+- Urban House 150 and Street Hub 065 jointly recorded the highest order volume, with 282 orders each.
+- Urban House 150 had a higher delivered-order value than Street Hub 065.
+- Street Bites 164 had the highest cancellation rate among the top 10 restaurants at 9.70%.
+- Urban Kitchen 102 had the lowest cancellation rate among the top 10 at 4.10%.
+- High order volume does not automatically mean higher delivered-order value or a lower cancellation rate.
+
+**Business Relevance**
+
+Comparing order volume, delivered-order value, and cancellation rate provides a more balanced view of restaurant performance. Restaurants with higher cancellation rates may warrant further investigation.
+
+**Limitations**
+
+- The results cover only the top 10 restaurants ranked by total order volume.
+- Delivered-order value is the sum of `Final_Amount` for delivered orders; it is not profit or confirmed accounting revenue.
+- The analysis describes performance patterns and does not establish the causes of cancellations.
+
+
+

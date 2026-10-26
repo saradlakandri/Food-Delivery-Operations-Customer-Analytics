@@ -131,6 +131,11 @@ ORDER BY YearMonth ASC;
 -- Business Question: What is the average delivery time, and how does it vary?
 -- Business Relevance: Assess delivery efficiency and identify opportunities to improve delivery performance and customer experience.
 
+-- Task 5.1: Average Delivery Time
+-- Objective: Calculate the average actual delivery duration for orders marked as delivered.
+-- Business Question: How long does a delivered order take, on average, according to the recorded delivery duration?
+-- Approach: Join orders and deliveries using Order_ID and calculate AVG(Actual_Delivery_Min) for delivered orders.
+-- Business Relevance: Establish a baseline for delivery duration.
 
 -- checking the columns of deliveries table
 SELECT 
@@ -478,3 +483,101 @@ WHERE
     Rating > 0 AND Rating < 6
 GROUP BY Review_Category
 ORDER BY Total_Valid_Reviews DESC;
+
+-- _________________________________________________________________________________________________________
+
+-- Task 7: Restaurant Performance Analysis
+-- Objective: Evaluate restaurant performance using order volume, completed-order value, and cancellation rate.
+-- Business Questions:
+-- 1. Which restaurants receive the most orders?
+-- 2. Which restaurants generate the highest completed-order value?
+-- 3. How do cancellation rates vary across restaurants?
+-- Business Relevance: Identify high-performing restaurants and investigate restaurants with elevated cancellation rates.
+
+
+-- =========================================================
+-- Task 7: Restaurant Performance Analysis
+-- =========================================================
+-- Objective:
+-- Evaluate restaurant performance using order volume,
+-- delivered-order value, and cancellation rate.
+--
+-- Task 7.1: Top 10 Restaurants by Order Volume
+-- Business Question: Which restaurants receive the highest number of orders?
+-- Approach: Join orders with restaurants using Restaurant_ID. Count all orders for each restaurant, regardless of status. Sort by total order count in descending order. Return the top 10 restaurants.
+
+SELECT 
+    r.Restaurant_Name, COUNT(o.Order_ID) AS No_of_Orders
+FROM
+    orders o
+        JOIN
+    restaurants r ON o.Restaurant_ID = r.Restaurant_ID
+GROUP BY r.Restaurant_Name
+ORDER BY No_of_Orders DESC
+LIMIT 10;
+
+
+
+-- Task 7.2: Restaurant Performance Comparison
+-- Business Questions:
+-- 1. How many total orders does each restaurant receive?
+-- 2. How many orders are delivered and cancelled?
+-- 3. What is the total order value for delivered orders?
+-- 4. What percentage of a restaurant's orders are cancelled?
+--
+-- Approach:
+-- Calculate total, delivered, and cancelled orders using
+-- conditional aggregation.
+-- Sum Final_Amount for delivered orders only.
+-- Calculate cancellation rate as:
+-- (Cancelled Orders / Total Orders) * 100.
+-- Sort restaurants by total order volume in descending order.
+-- Return the top 10 restaurants.
+
+-- Business Relevance:
+-- Identify restaurants with high order demand, strong
+-- delivered-order value, and potentially elevated cancellation
+-- rates for further investigation.
+
+SELECT 
+    r.Restaurant_Name,
+    COUNT(o.Order_ID) AS Total_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN 1
+        ELSE 0
+    END) AS Delivered_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Cancelled' THEN 1
+        ELSE 0
+    END) AS Cancelled_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN o.Final_Amount
+        ELSE 0
+    END) AS Delivered_Order_Value,
+    ROUND(((SUM(CASE
+                WHEN o.Order_Status = 'Cancelled' THEN 1
+                ELSE 0
+            END)) / (COUNT(o.Order_ID)) * 100),
+            2) AS Cancellation_Rate_Percent
+FROM
+    orders o
+        JOIN
+    restaurants r ON o.Restaurant_ID = r.Restaurant_ID
+GROUP BY r.Restaurant_Name
+ORDER BY Total_Orders DESC , Delivered_Order_Value DESC
+LIMIT 10
+
+-- Task 7.2: Restaurant Performance Comparison
+-- Results and Observations: -- Urban House 150 and Street Hub 065 had the highest order volume, with 282 orders each.
+
+-- Urban House 150 had the higher delivered-order value of the two, at 131,340.72.
+-- Street Bites 164 had the highest cancellation rate in the top 10, at 9.70%. Urban Kitchen 102 had the lowest cancellation rate in the top 10, at 4.10%.
+
+-- Business Insight:
+-- High order volume does not necessarily correspond to higher delivered-order value or a lower cancellation rate.
+-- Restaurant performance should be assessed using multiple metrics.
+--
+-- Limitation:
+-- This analysis covers the top 10 restaurants ranked by total
+-- order volume. It does not measure profit or profit margin.
+
