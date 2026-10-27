@@ -683,3 +683,38 @@ This analysis helps compare ordering activity and fulfilment outcomes across cus
 - Aggregate delivered-order value is not profit.
 - Differences in segment totals partly reflect differences in customer counts.
 - The analysis identifies patterns but does not explain the causes of cancellation differences.
+
+#### 19.3 Average Customer Contribution by Segment
+
+**Objective**
+
+Compare average order frequency and average delivered-order value per customer across customer segments.
+
+**Approach**
+
+Used the `customers` and `orders` tables, joined by `Customer_ID`, and grouped the results by `Customer_Segment`. Calculated average orders per customer by dividing total orders by distinct customers. Calculated average delivered-order value per customer by dividing the segment's delivered-order value by its distinct customer count. Rounded both averages to two decimal places and sorted by average delivered-order value per customer in descending order.
+
+**Results**
+
+| Customer Segment | Total Customers | Total Orders | Avg. Orders per Customer | Delivered-Order Value | Avg. Delivered Value per Customer |
+|---|---:|---:|---:|---:|---:|
+| New | 480 | 11,551 | 24.06 | 5,209,365.50 | 10,852.84 |
+| Regular | 1,585 | 38,236 | 24.12 | 16,959,166.77 | 10,699.79 |
+| Premium | 435 | 10,213 | 23.48 | 4,497,889.88 | 10,339.98 |
+
+**Business Insights**
+
+- New customers had the highest average delivered-order value per customer.
+- Regular customers had the highest average order frequency, at 24.12 orders per customer.
+- Premium customers had the lowest average delivered-order value per customer.
+- Segment rankings differ when comparing aggregate totals with average customer contribution.
+
+**Business Relevance**
+
+Average metrics allow customer segments of different sizes to be compared more fairly. These results can inform further customer segmentation and retention analysis.
+
+**Limitations**
+
+- Average delivered-order value per customer is not profit.
+- Segment averages do not explain why customer behaviour differs.
+- The results describe the available order data and should not be interpreted as causal findings.

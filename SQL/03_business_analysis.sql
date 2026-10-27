@@ -790,3 +790,67 @@ LIMIT 10;
 -- Limitation:
 	-- Segment totals are affected by the number of customers in each group.
 	-- These results do not establish why cancellation rates differ.
+    
+-- =========================================================
+-- Task 8.3: Average Customer Contribution by Segment
+-- =========================================================
+-- Objective:
+-- Compare average order frequency and delivered-order value per customer across customer segments.
+--
+-- Business Questions:
+	-- 1. How many orders does each customer place on average
+	--    within each segment?
+	-- 2. What is the average delivered-order value per customer
+	--    in each segment?
+--
+-- Approach:
+-- Use customer-segment order totals to calculate average orders per customer and average delivered-order value per customer.
+--
+-- Business Relevance:
+-- Compare customer segments while accounting for differences in segment size.
+--
+-- Interpretation Note:
+	-- Average delivered-order value per customer is not profit and does not represent the value of a typical individual order.
+
+ SELECT 
+    c.Customer_Segment,
+    COUNT(DISTINCT (o.Customer_ID)) AS Total_Customers,
+    COUNT(o.Customer_ID) AS Total_Orders,
+    ROUND((COUNT(o.Customer_ID)) / COUNT(DISTINCT (o.Customer_ID)),
+            2) AS Avg_Orders_Per_Customer,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN o.Final_Amount
+        ELSE 0
+    END) AS Delivered_Order_Value,
+    ROUND((SUM(CASE
+                WHEN o.Order_Status = 'Delivered' THEN o.Final_Amount
+                ELSE 0
+            END)) / COUNT(DISTINCT (o.Customer_ID)),
+            2) AS Avg_Delivered_Value_Per_Customer
+FROM
+    orders o
+        JOIN
+    customers c ON c.Customer_ID = o.Customer_ID
+GROUP BY c.Customer_Segment
+ORDER BY Avg_Delivered_Value_Per_Customer DESC
+LIMIT 10;
+
+-- Task 8.3: Average Customer Contribution by Segment
+-- Results and Observations:
+-- New customers had the highest average delivered-order value
+-- per customer, at 10,852.84.
+-- Regular customers had the highest average order frequency,
+-- at 24.12 orders per customer.
+-- Premium customers had the lowest average delivered-order
+-- value per customer, at 10,339.98.
+--
+-- Business Insight:
+-- Segment rankings differ when comparing average customer
+-- contribution instead of aggregate totals.
+-- New customers had the highest average delivered-order value
+-- per customer despite having fewer customers than the Regular segment.
+--
+-- Limitation:
+-- These averages describe segment-level customer contribution.
+-- They do not represent profit or explain the reasons for
+-- differences between customer segments.
