@@ -595,3 +595,91 @@ Comparing order volume, delivered-order value, and cancellation rate provides a 
 
 
 
+### 19. Customer and Order Behaviour Analysis
+
+**Objective**
+
+Analyse customer ordering behaviour and identify customers who contribute the most to delivered-order value.
+
+**Business Questions**
+
+- How many orders has each customer placed?
+- How many of each customer's orders were delivered?
+- What is the delivered-order value for each customer?
+- Which customers place orders most frequently?
+- Which customers contribute the highest delivered-order value?
+
+**Approach**
+
+Join the `customers` and `orders` tables using `Customer_ID`. Aggregate order metrics at the customer level, count total orders and delivered orders separately, and calculate delivered-order value using `Final_Amount` for delivered orders only.
+
+**Business Relevance**
+
+Understanding customer ordering frequency and delivered-order value can help identify frequent customers and high-value customers. These insights may support customer segmentation, retention strategies, and targeted marketing.
+
+**Data Rules**
+
+- Include all order statuses when calculating total orders.
+- Count only delivered orders in `Delivered_Orders`.
+- Include only delivered orders when calculating `Delivered_Order_Value`.
+
+**Results and Insights**
+
+#### 19.1 Customer-Level Order Analysis
+
+**Objective**
+
+Analyse individual customer ordering behaviour and compare order frequency, delivered-order value, and cancellation behaviour.
+
+**Approach**
+
+Joined the `customers` and `orders` tables using `Customer_ID`. Grouped the results by customer ID, name, and customer segment. Used conditional aggregation to count delivered and cancelled orders and calculate the final order amounts associated with each status. Calculated cancellation rate as cancelled orders divided by total orders, multiplied by 100. Sorted customers by total order count in descending order and returned the top 10.
+
+**Example Finding**
+
+The highest-ordering customer in the displayed results placed 40 orders, including 38 delivered orders and 2 cancelled orders. The customer's delivered-order value was 21,499.95, and the cancellation rate was 5.00%.
+
+**Business Relevance**
+
+These metrics help compare frequent customers and their contribution to delivered-order value. They can support customer segmentation and retention analysis.
+
+**Limitations**
+
+- The results cover only the top 10 customers by order count.
+- Delivered-order value is not profit.
+- The analysis describes customer ordering patterns and does not establish the reasons behind cancellations.
+
+#### 19.2 Customer Segment Analysis
+
+**Objective**
+
+Compare order behaviour, delivered-order value, and cancellation rates across customer segments.
+
+**Approach**
+
+Joined the `customers` and `orders` tables using `Customer_ID` and grouped the results by `Customer_Segment`. Counted distinct customers and total orders separately. Used conditional aggregation to calculate delivered and cancelled order counts and their respective order values. Calculated cancellation rate as cancelled orders divided by total orders, multiplied by 100.
+
+**Results**
+
+| Customer Segment | Total Customers | Total Orders | Delivered Orders | Delivered-Order Value | Cancelled Orders | Cancelled-Order Value | Cancellation Rate |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Regular | 1,585 | 38,236 | 35,339 | 16,959,166.77 | 2,897 | 1,410,959.94 | 7.58% |
+| New | 480 | 11,551 | 10,702 | 5,209,365.50 | 849 | 414,354.09 | 7.35% |
+| Premium | 435 | 10,213 | 9,409 | 4,497,889.88 | 804 | 399,676.70 | 7.87% |
+
+**Business Insights**
+
+- Regular customers accounted for the largest customer count, total order volume, and delivered-order value.
+- New customers had the lowest cancellation rate at 7.35%.
+- Premium customers had the highest cancellation rate at 7.87%.
+- Segment totals should be interpreted alongside the number of customers in each segment.
+
+**Business Relevance**
+
+This analysis helps compare ordering activity and fulfilment outcomes across customer segments. The results can guide further investigation into customer retention and segment-specific service improvements.
+
+**Limitations**
+
+- Aggregate delivered-order value is not profit.
+- Differences in segment totals partly reflect differences in customer counts.
+- The analysis identifies patterns but does not explain the causes of cancellation differences.

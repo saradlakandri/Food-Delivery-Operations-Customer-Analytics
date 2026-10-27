@@ -1,4 +1,7 @@
+
+-- ===========================================================================
 -- Task 1: Order Volume and Status Analysis
+-- ===========================================================================
 -- Objective: Calculate the total number of orders and understand their status distribution.
 -- Business Questions:
 -- 1. How many orders were placed in total?
@@ -35,9 +38,10 @@ WHERE
 -- Observation: 60,000 total orders; 55,450 delivered and 4,550 cancelled.
 -- Delivered rate: 92.42%; cancellation rate: 7.58%.
 
--- ________________________________________________________________________________________________________________________________
-
+-- ===========================================================================
 -- Task 2: Revenue Analysis
+-- ===========================================================================
+
 -- Objective: Calculate the total revenue generated from orders.
 -- Business Question: What is the total final order amount?
 -- Approach: Use SUM() on the Final_Amount column.
@@ -74,9 +78,10 @@ WHERE
 -- Business Note: Treat the delivered-order amount as the initial completed-sales measure.
 -- Confirm the currency and the definition of Final_Amount before reporting recognised revenue.
 
--- ________________________________________________________________________________________________________________________________
-
+-- ===========================================================================
 -- Task 3: Average Order Value (AOV)
+-- ===========================================================================
+
 -- Objective: Calculate the average final amount per order.
 -- Business Question: What is the average amount spent per order?
 -- Business Relevance: Understand typical order value and establish a baseline for pricing, promotions, and customer spending analysis.
@@ -105,9 +110,10 @@ WHERE
 -- Cancelled orders average approximately ₹489.01.
 -- Further analysis is required to determine whether order value is related to cancellation.
 
--- ________________________________________________________________________________________________________________________________
-
+-- ===========================================================================
 -- Task 4: Monthly Order Trends
+-- ===========================================================================
+
 -- Objective: Analyse monthly order volume over time.
 -- Business Question: How does the number of orders change from month to month?
 -- Business Relevance: Identify demand patterns and periods of higher or lower order activity to support operational planning.
@@ -123,15 +129,17 @@ ORDER BY YearMonth ASC;
 
 -- Observation: Monthly order volume varies over time, with noticeable changes between consecutive months. Further analysis is required to identify seasonality.
 
--- ________________________________________________________________________________________________________________________________
-
-
+-- ===========================================================================
 -- Task 5: Delivery Time Analysis
+-- ===========================================================================
+
 -- Objective: Analyse the time taken to complete deliveries.
 -- Business Question: What is the average delivery time, and how does it vary?
 -- Business Relevance: Assess delivery efficiency and identify opportunities to improve delivery performance and customer experience.
 
+-- =========================================================
 -- Task 5.1: Average Delivery Time
+-- =========================================================
 -- Objective: Calculate the average actual delivery duration for orders marked as delivered.
 -- Business Question: How long does a delivered order take, on average, according to the recorded delivery duration?
 -- Approach: Join orders and deliveries using Order_ID and calculate AVG(Actual_Delivery_Min) for delivered orders.
@@ -155,8 +163,9 @@ WHERE
     Order_Status = 'delivered';
 
 -- 
-
+-- =========================================================
 -- Task 5.2: On-Time Delivery Performance
+-- =========================================================
 -- Objective: Evaluate delivery performance against estimated delivery times.
 -- Business Question: How many deliveries are on time versus delayed?
 -- Business Relevance: Measure delivery reliability and identify opportunities to improve delivery estimates and customer experience.
@@ -173,7 +182,9 @@ GROUP BY Delivery_Status;
 -- Business Insight: 86.84% of delivery records were marked as Delayed.
 -- Further Analysis: Investigate the difference between estimated and actual delivery times to understand the extent of delays.
 
+-- =========================================================
 -- Task 5.3: Delivery Status Consistency Check
+-- =========================================================
 -- Objective: Validate the original delivery status against estimated and actual times.
 -- Business Question: Does the recorded Delivery_Status match the time-based classification?
 -- Business Relevance: Establish reliable delivery status classifications before measuring delivery performance.
@@ -222,7 +233,9 @@ HAVING Delivery_Status = 'Delayed';
 -- Business Insight: The original status matches the time-based rule for approximately 99.96% of delivery records.
 -- Note: This check validates consistency, not the accuracy of recorded times.
 
+-- =========================================================
 -- Task 5.4: Average Delay Duration
+-- =========================================================
 -- Objective: Measure the average delay among deliveries that exceeded their estimated delivery time.
 -- Business Question: On average, how many minutes late are delayed deliveries?
 -- Approach: Calculate the difference between actual and estimated delivery times, including only records where actual time exceeds estimated time.
@@ -242,7 +255,9 @@ WHERE
 -- Business Insight: Deliveries that exceeded their estimates were late by an average of approximately 18.44 minutes.
 -- Business Relevance: Quantify delays to identify opportunities to improve delivery estimates and operational efficiency.
 
+-- =========================================================
 -- Task 5.5: Delivery Performance by Distance
+-- =========================================================
 -- Objective: Analyse the relationship between delivery distance and duration.
 -- Business Question: How does average delivery time vary by distance?
 -- Business Relevance: Understand distance-related delivery patterns to support delivery planning and operational efficiency.
@@ -268,8 +283,9 @@ ORDER BY Distance_Band;
 -- Business Insight: Actual delivery time exceeded estimated time across all distance bands. Very Long deliveries had the largest average gap, at approximately 17 minutes.
 -- Business Relevance: Review delivery estimates and investigate other operational factors that may contribute to delays.
 
--- _______________________________________________________________________________________________________________________________________________________
+-- =========================================================================================
 -- Task 6: Customer Satisfaction Analysis
+-- =========================================================================================
 -- Objective: Analyse customer ratings and understand satisfaction patterns.
 -- Business Question: What ratings are customers giving to the service?
 -- Business Relevance: Identify customer satisfaction patterns and potential areas for service improvement.
@@ -291,8 +307,9 @@ FROM
 -- Business Insight: Establishes an overall customer-rating baseline.
 -- Limitation: The average alone does not show how ratings are distributed.
 
-
+-- =========================================================
 -- Task 6.2: Customer Rating Distribution
+-- =========================================================
 -- Objective: Analyse the frequency of each customer rating.
 -- Business Question: How are reviews distributed across ratings from 1 to 5?
 -- Business Relevance: Identify the proportion of low, middle, and high ratings
@@ -312,8 +329,9 @@ ORDER BY No_Reviews;
 -- Data Quality Finding: 12 reviews have rating 0 and 8 reviews have rating 6.
 -- Business Insight: High ratings are common, but unexpected rating values must be investigated before final satisfaction reporting.
 
-
+-- =========================================================
 -- Task 6.3: Rating Data Quality Check
+-- =========================================================
 -- Objective: Investigate reviews with ratings outside the expected 1–5 scale.
 -- Business Question: Which review records contain unexpected rating values?
 -- Business Relevance: Identify records that may need correction or exclusion
@@ -334,7 +352,9 @@ WHERE
 -- Data Quality Finding: These ratings fall outside the expected 1–5 scale. 
 -- Next Step: Investigate the records before deciding whether to correct or exclude them from customer satisfaction reporting.
 
+-- =========================================================
 -- Task 6.4: Customer Satisfaction by Rating Category
+-- =========================================================
 -- Objective: Analyse average customer ratings across different review categories.
 -- Business Question: Which aspects of the service receive higher or lower ratings?
 -- Business Relevance: Identify service areas that may need improvement.
@@ -361,8 +381,9 @@ ORDER BY Avg_Rating;
 -- Business Insight: Average ratings are similar across all four categories.
 -- Business Relevance: Further analysis of low ratings may help identify specific service issues that need attention.
 
-
+-- =========================================================
 -- Task 6.5: Low-Rating Analysis
+-- =========================================================
 -- Objective: Identify review categories with higher numbers of low ratings.
 -- Business Question: How many reviews are rated 1 or 2 in each category?
 -- Business Relevance: Identify service areas that may require improvement.
@@ -386,7 +407,9 @@ ORDER BY No_of_Reviews DESC;
 -- Limitation: Counts alone do not account for differences in total review volume.
 -- Next Step: Compare low-rating percentages across categories.
 
+-- =========================================================
 -- Task 6.6: Low-Rating Percentage by Category
+-- =========================================================
 -- Objective: Compare the proportion of low ratings across review categories.
 -- Business Question: Which service category has the highest percentage of reviews rated 1 or 2?
 -- Business Relevance: Compare categories fairly despite differences in review volume and identify potential service improvement priorities.
@@ -416,7 +439,9 @@ ORDER BY Total_Valid_Reviews DESC;
 -- Business Insight: Food Quality has the highest proportion of low ratings, although the differences between categories are small.
 -- Business Relevance: Use these percentages to help prioritise further investigation into potential service-quality issues.
 
+-- =========================================================
 -- Task 6.7: High-Rating Analysis
+-- =========================================================
 -- Objective: Measure the proportion of high ratings across review categories.
 -- Business Question: Which categories receive the highest percentage of ratings 4 or 5?
 -- Business Relevance: Identify service areas where customer feedback is strongest.
@@ -446,9 +471,11 @@ ORDER BY Total_Valid_Reviews DESC;
 -- Data Quality Rule: Included only ratings between 1 and 5.
 -- Result: Overall had the highest high-rating percentage at 72.42%,followed by Packaging at 72.20%, Food Quality at 71.85%, and Delivery at 71.85%.
 -- Business Insight: Approximately 72.05% of all valid reviews received a rating of 4 or 5 
--- Business Relevance: Identify service areas with stronger customer feedback and compare them with low-rating results.   
-
+-- Business Relevance: Identify service areas with stronger customer feedback and compare them with low-rating results.  
+ 
+-- =========================================================
 -- Task 6.8: Comparison of High and Low Ratings
+-- =========================================================
 -- Objective: Compare high and low customer ratings across review categories.
 -- Business Question: Which categories have a stronger proportion of high ratings compared with low ratings?
 -- Business Relevance: Identify service areas with stronger customer feedback and areas that may need improvement.
@@ -484,9 +511,9 @@ WHERE
 GROUP BY Review_Category
 ORDER BY Total_Valid_Reviews DESC;
 
--- _________________________________________________________________________________________________________
-
+-- =========================================================
 -- Task 7: Restaurant Performance Analysis
+-- =========================================================
 -- Objective: Evaluate restaurant performance using order volume, completed-order value, and cancellation rate.
 -- Business Questions:
 -- 1. Which restaurants receive the most orders?
@@ -496,13 +523,8 @@ ORDER BY Total_Valid_Reviews DESC;
 
 
 -- =========================================================
--- Task 7: Restaurant Performance Analysis
--- =========================================================
--- Objective:
--- Evaluate restaurant performance using order volume,
--- delivered-order value, and cancellation rate.
---
 -- Task 7.1: Top 10 Restaurants by Order Volume
+-- =========================================================
 -- Business Question: Which restaurants receive the highest number of orders?
 -- Approach: Join orders with restaurants using Restaurant_ID. Count all orders for each restaurant, regardless of status. Sort by total order count in descending order. Return the top 10 restaurants.
 
@@ -517,8 +539,9 @@ ORDER BY No_of_Orders DESC
 LIMIT 10;
 
 
-
+-- =========================================================
 -- Task 7.2: Restaurant Performance Comparison
+-- =========================================================
 -- Business Questions:
 -- 1. How many total orders does each restaurant receive?
 -- 2. How many orders are delivered and cancelled?
@@ -565,19 +588,205 @@ FROM
     restaurants r ON o.Restaurant_ID = r.Restaurant_ID
 GROUP BY r.Restaurant_Name
 ORDER BY Total_Orders DESC , Delivered_Order_Value DESC
-LIMIT 10
+LIMIT 10;
 
+-- =========================================================
 -- Task 7.2: Restaurant Performance Comparison
--- Results and Observations: -- Urban House 150 and Street Hub 065 had the highest order volume, with 282 orders each.
+-- =========================================================
+-- Results and Observations: Urban House 150 and Street Hub 065 had the highest order volume, with 282 orders each.
+	-- Urban House 150 had the higher delivered-order value of the two, at 131,340.72.
+	-- Street Bites 164 had the highest cancellation rate in the top 10, at 9.70%. Urban Kitchen 102 had the lowest cancellation rate in the top 10, at 4.10%.
 
--- Urban House 150 had the higher delivered-order value of the two, at 131,340.72.
--- Street Bites 164 had the highest cancellation rate in the top 10, at 9.70%. Urban Kitchen 102 had the lowest cancellation rate in the top 10, at 4.10%.
+-- Business Insight: High order volume does not necessarily correspond to higher delivered-order value or a lower cancellation rate.
+	-- Restaurant performance should be assessed using multiple metrics.
+-- Limitation: This analysis covers the top 10 restaurants ranked by total order volume. It does not measure profit or profit margin.
 
+
+-- =========================================================
+-- Task 8: Customer and Order Behaviour Analysis
+-- =========================================================
+-- Objective:
+-- Analyse customer ordering behaviour and identify customers who contribute the most to completed-order value.
+
+-- Business Questions:
+-- 1. How many orders has each customer placed?
+-- 2. How many of each customer's orders were delivered?
+-- 3. What is the delivered-order value for each customer?
+-- 4. Which customers place orders most frequently?
+-- 5. Which customers contribute the highest delivered-order value?
+
+-- Approach:
+	-- Join the customers and orders tables using Customer_ID.
+	-- Aggregate order metrics at the customer level.
+	-- Count total orders and delivered orders separately.
+	-- Sum Final_Amount for delivered orders only.
+	-- Use the results to compare customer order frequency and delivered-order value.
+-- Business Relevance:
+	-- Identify frequent customers and high-value customers to
+	-- support customer segmentation, retention strategies, and targeted marketing.
+-- Data Rule:
+	-- Include all order statuses in Total_Orders.
+	-- Include only delivered orders in Delivered_Orders and Delivered_Order_Value.
+    
+    SELECT 
+    *
+FROM
+    customers
+LIMIT 10;
+
+-- =========================================================
+-- Task 8.1: Customer-Level Order Analysis
+-- =========================================================
+-- Objective:
+	-- Analyse individual customer ordering behaviour and
+	-- calculate their contribution to delivered-order value.
+
+-- Business Questions:
+	-- 1. How many orders has each customer placed?
+	-- 2. How many orders were delivered for each customer?
+	-- 3. What is the delivered-order value for each customer?
+
+-- Approach:
+	-- Join customers and orders using Customer_ID.
+	-- Group the results at the customer level.
+	-- Count all orders and count delivered orders separately.
+	-- Sum Final_Amount for delivered orders only.
+	-- Sort customers by total order count in descending order.
+	-- Return the top 10 customers for initial analysis.
+
+-- Business Relevance:
+	-- Identify frequent customers and compare their contribution to delivered-order value.
+
+-- Data Rules:
+	-- Include all order statuses in Total_Orders.
+	-- Count only delivered orders in Delivered_Orders.
+	-- Include only delivered orders in Delivered_Order_Value.
+    
+    SELECT 
+    c.Customer_ID,
+    c.Customer_Name,
+    c.Customer_Segment,
+    COUNT(o.Customer_ID) AS Total_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN 1
+        ELSE 0
+    END) AS Delivered_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN o.Final_Amount
+        ELSE 0
+    END) AS Delivered_Order_Value,
+    SUM(CASE
+        WHEN o.Order_Status = 'Cancelled' THEN 1
+        ELSE 0
+    END) AS Cancelled_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Cancelled' THEN o.Final_Amount
+        ELSE 0
+    END) AS Cancelled_Order_Value,
+    ROUND((SUM(CASE
+                WHEN o.Order_Status = 'Cancelled' THEN 1
+                ELSE 0
+            END)) / COUNT(o.Customer_ID) * 100,
+            2) as Cancellation_Rate_Percent
+FROM
+    orders o
+        JOIN
+    customers c ON c.Customer_ID = o.Customer_ID
+GROUP BY c.Customer_ID , c.Customer_Name , c.Customer_Segment
+ORDER BY Total_Orders DESC
+LIMIT 10;
+
+
+-- Task 8.1: Customer-Level Order Analysis
+-- Results and Observations:
+	-- The query returns the top 10 customers ranked by total order count.
+	-- The highest-ordering customer in the displayed results placed 40 orders, of which 38 were delivered and 2 were cancelled.
+	-- The customer's delivered-order value was 21,499.95.
+	-- The customer's cancelled-order value was 820.56.
+	-- The cancellation rate for this customer was 5.00%.
+--
 -- Business Insight:
--- High order volume does not necessarily correspond to higher delivered-order value or a lower cancellation rate.
--- Restaurant performance should be assessed using multiple metrics.
+	-- Customer-level metrics allow comparison of order frequency, delivered-order value, and cancellation behaviour.
+-- Limitation:
+	-- These results cover only the top 10 customers by total order count.
+	-- Delivered-order value is not the same as profit.
+    
+    
+-- =========================================================
+-- Task 8.2: Customer Segment Analysis
+-- =========================================================
+-- Objective:
+-- Compare order behaviour and delivered-order value across
+-- customer segments.
+--
+-- Business Questions:
+-- 1. How many customers belong to each segment?
+-- 2. How many total orders are associated with each segment?
+-- 3. How many orders were delivered?
+-- 4. What is the delivered-order value for each segment?
+-- 5. How does cancellation rate vary across segments?
+--
+-- Approach:
+-- Join customers and orders using Customer_ID.
+-- Group the results by Customer_Segment.
+-- Count distinct customers and total orders separately.
+-- Use conditional aggregation to count delivered and
+-- cancelled orders.
+-- Sum Final_Amount for delivered orders only.
+-- Calculate cancellation rate as cancelled orders divided
+-- by total orders, multiplied by 100.
+--
+-- Business Relevance:
+-- Compare ordering activity and order outcomes across
+-- customer segments to support customer retention and
+-- marketing decisions.
+
+  SELECT 
+    c.Customer_Segment,
+    COUNT(DISTINCT(o.Customer_ID)) AS Total_Customers,
+    COUNT(o.Customer_ID) AS Total_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN 1
+        ELSE 0
+    END) AS Delivered_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Delivered' THEN o.Final_Amount
+        ELSE 0
+    END) AS Delivered_Order_Value,
+    SUM(CASE
+        WHEN o.Order_Status = 'Cancelled' THEN 1
+        ELSE 0
+    END) AS Cancelled_Orders,
+    SUM(CASE
+        WHEN o.Order_Status = 'Cancelled' THEN o.Final_Amount
+        ELSE 0
+    END) AS Cancelled_Order_Value,
+    ROUND((SUM(CASE
+                WHEN o.Order_Status = 'Cancelled' THEN 1
+                ELSE 0
+            END)) / COUNT(o.Customer_ID) * 100,
+            2) as Cancellation_Rate_Percent
+FROM
+    orders o
+        JOIN
+    customers c ON c.Customer_ID = o.Customer_ID
+GROUP BY c.Customer_Segment
+ORDER BY Total_Customers DESC
+LIMIT 10;
+
+-- Task 8.2: Customer Segment Analysis
+-- Results and Observations:
+	-- Regular customers: 1,585 customers and 38,236 total orders.
+	-- New customers: 480 customers and 11,551 total orders.
+	-- Premium customers: 435 customers and 10,213 total orders.
+	-- Regular customers generated the highest delivered-order value, at 16,959,166.77.
+	-- New customers had the lowest cancellation rate, at 7.35%.
+	-- Premium customers had the highest cancellation rate, at 7.87%.
+--
+-- Business Insight:
+	-- Regular customers account for the largest share of customers, order volume, and delivered-order value among these segments.
+	-- Cancellation rates differ across segments, with Premium customers showing the highest rate and New customers the lowest.
 --
 -- Limitation:
--- This analysis covers the top 10 restaurants ranked by total
--- order volume. It does not measure profit or profit margin.
-
+	-- Segment totals are affected by the number of customers in each group.
+	-- These results do not establish why cancellation rates differ.
