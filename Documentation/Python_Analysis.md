@@ -150,3 +150,52 @@ Hourly demand should be considered alongside delivery performance, restaurant pr
 **Limitation:**
 
 This analysis identifies order placement patterns but does not establish actual delivery workload, staffing requirements, profitability, or the reasons behind hourly demand fluctuations.
+
+### 4.3 Delivery Distance and Time Analysis
+
+**Objective:**
+
+Examine the relationship between delivery distance and actual delivery duration.
+
+**Approach:**
+
+- Merged Orders and Deliveries datasets using `Order_ID`.
+- Used an inner join to retain matching delivery records.
+- Calculated the correlation between `Distance_KM` and `Actual_Delivery_Min`.
+- Created a Seaborn scatter plot to visualise the relationship.
+
+**Results:**
+
+| Metric | Result |
+|---|---:|
+| Matched delivery records | 55,450 |
+| Correlation coefficient | 0.07 |
+
+**Business Findings:**
+
+The correlation coefficient of 0.07 indicates a very weak positive linear relationship between delivery distance and actual delivery duration.
+
+Delivery distance alone does not strongly explain variations in actual delivery time.
+
+### 4.4 Investigation of Unusually Short Delivery Times
+
+**Objective:**
+
+Examine delivery records with unusually short actual delivery durations.
+
+**Approach:**
+
+Filtered records where `Actual_Delivery_Min` was 5 minutes or less and compared the actual duration against estimated delivery time and delivery distance.
+
+**Findings:**
+
+- 25 records were identified.
+- All 25 records had an actual delivery duration of 2 minutes.
+- Estimated delivery durations ranged from 25 to 60 minutes.
+- Delivery distances ranged from 1.46 km to 17.96 km.
+
+**Business Interpretation:**
+
+These records represent potential data-quality anomalies because the recorded actual delivery durations appear unusually short compared with their estimated durations and delivery distances.
+
+The original records were retained without modification. Further validation would be required to establish the cause of these unusual values.
