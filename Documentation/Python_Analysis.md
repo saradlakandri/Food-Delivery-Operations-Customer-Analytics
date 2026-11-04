@@ -5,7 +5,7 @@
 
 This document presents the Python-based business analysis performed on the cleaned Food Delivery dataset using Pandas, NumPy, and Matplotlib.
 
-The objective is to identify customer ordering patterns, understand hourly demand distribution, and derive insights that can support operational planning and resource allocation.
+The objective is to analyse customer ordering patterns, understand hourly demand distribution, examine delivery performance, and derive insights that can support operational planning and business decision-making.
 
 ### 2. Tools & Libraries
 
@@ -13,6 +13,7 @@ The objective is to identify customer ordering patterns, understand hourly deman
 - **Pandas:** Data manipulation, grouping, aggregation, and analysis.
 - **NumPy:** Numerical calculations and statistical comparisons.
 - **Matplotlib:** Data visualization and presentation of findings.
+- **Seaborn:** Statistical data visualization, including scatter plots.
 
 ### 3. Dataset
 
@@ -174,6 +175,7 @@ Examine the relationship between delivery distance and actual delivery duration.
 **Business Findings:**
 
 The correlation coefficient of 0.07 indicates a very weak positive linear relationship between delivery distance and actual delivery duration.
+The weak correlation suggests that other factors beyond delivery distance may influence actual delivery duration.
 
 Delivery distance alone does not strongly explain variations in actual delivery time.
 
@@ -199,3 +201,50 @@ Filtered records where `Actual_Delivery_Min` was 5 minutes or less and compared 
 These records represent potential data-quality anomalies because the recorded actual delivery durations appear unusually short compared with their estimated durations and delivery distances.
 
 The original records were retained without modification. Further validation would be required to establish the cause of these unusual values.
+
+### 4.5 Customer Ordering Behaviour Analysis
+
+**Objective:**
+
+Analyse customer-level ordering frequency to understand repeat purchasing behaviour and the distribution of orders across the customer base.
+
+**Approach:**
+
+- Loaded and inspected the Customers dataset containing 2,500 customer records.
+- Converted the `Signup_Date` column to datetime format.
+- Combined Customers and Orders datasets using `Customer_ID`.
+- Grouped order records by customer to calculate individual order frequency.
+- Classified customers as one-time or repeat customers based on their total order count.
+- Used descriptive statistics to examine customer ordering frequency.
+
+**Results:**
+
+| Metric | Result |
+|---|---:|
+| Total Customers | 2,500 |
+| Total Orders | 60,000 |
+| One-Time Customers | 0 |
+| Repeat Customers | 2,500 |
+| One-Time Customers (%) | 0% |
+| Repeat Customers (%) | 100% |
+| Average Orders per Customer | 24 |
+| Median Orders per Customer | 24 |
+| Minimum Orders per Customer | 10 |
+| Maximum Orders per Customer | 40 |
+| Standard Deviation | 4.76 |
+
+**Business Findings:**
+
+- All 2,500 customers were classified as repeat customers.
+- No one-time customers were identified in the dataset.
+- The average and median order frequency were both 24 orders per customer.
+- Individual customer order counts ranged from 10 to 40 orders.
+- The middle 50% of customers placed between 21 and 27 orders.
+
+**Business Interpretation:**
+
+The customer base demonstrates consistent repeat ordering behaviour within the available dataset. All recorded customers placed multiple orders, indicating recurring purchasing activity.
+
+The average and median order frequency of 24 orders suggest a relatively concentrated distribution of customer ordering activity, although individual ordering frequency varies across customers.
+
+The analysis is based on customer records with matching order information in the Orders dataset.

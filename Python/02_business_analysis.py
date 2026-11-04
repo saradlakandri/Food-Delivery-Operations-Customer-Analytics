@@ -82,8 +82,6 @@ print(Order_by_Hourly_wise, Order_by_Hours['Total_Orders'].sum())
 import matplotlib.pyplot as plt
 plt.figure(figsize=(10, 5))
 plt.plot(Order_by_Hourly_wise['Order_Hour'], Order_by_Hourly_wise['Total_Orders'], color='blue', marker = 'o')
-plt.xlabel('Hour')
-plt.ylabel('Total Orders')
 plt.title('Hourly Order Demand')
 plt.xlabel('Hour of the Day')
 plt.ylabel('Number of Orders')
@@ -96,7 +94,7 @@ plt.show()
 # NumPy was used to calculate the average and maximum hourly order volumes and the difference between these values.
 # This comparison measures how far peak demand exceeds the average hourly order volume.
 
-import numpy as np
+
 
 avg_orders = np.mean(Order_by_Hourly_wise['Total_Orders'])
 max_orders = np.max(Order_by_Hourly_wise['Total_Orders'])
@@ -228,4 +226,88 @@ plt.show()
 # The difference between the highest and lowest daily volumes was 375 orders.
 # Overall, order demand remained relatively consistent across all seven days, without substantial variation in volume.
 
+# Step 15: Customer Ordering Behaviour Analysis
+# Customer-level ordering frequency is examined to understand how frequently customers place orders and how ordering activity is distributed across the customer base.
+#
+# The analysis focuses on identifying one-time and repeat customers and examining ordering frequency across the customer base.
 
+
+# Step 15.1: Inspect Customer Dataset Structure
+# The customer dataset was loaded and examined to understand
+# its structure, column names, data types, and numerical
+# distributions before performing customer-level analysis.
+
+customers = pd.read_csv("C:/Users/Renewfy/Downloads/Sharpener Final Module/Food Delivery Operations & Customer Analytics/data/cleaned/customers.csv")
+print(customers.head())
+customers.info()
+print(customers.describe())
+print(customers.columns.tolist())
+print(customers.dtypes)
+
+# Step 15.2: Prepare Customer Signup Date
+# The Signup_Date column was converted to datetime format to ensure that customer registration dates are stored  in an appropriate date type for analysis.
+
+customers['Signup_Date'] = pd.to_datetime(customers['Signup_Date'])
+print(customers['Signup_Date'].dtype)
+
+# Step 15.3: Customer-Level Order Frequency Analysis
+# Customer and order records are combined using Customer_ID to examine individual customer ordering frequency.
+# The analysis focuses on the number of orders placed by each customer across the dataset.
+
+ord_cust_inn = pd.merge(orders, customers, on='Customer_ID',how ='inner')
+print(ord_cust_inn.head())
+cus_total_order = (ord_cust_inn.groupby(['Customer_ID', 'Customer_Name', 'Customer_Segment']).agg(Total_Orders=("Order_ID", 'count')).reset_index())
+print(cus_total_order)
+
+# Findings:
+# The customer-level summary contains 2,500 customers.
+# Order frequency was calculated individually for each customer.
+# The resulting dataset contains customer ID, customer name, customer segment, and total order count.
+
+
+# Step 15.4: One-Time and Repeat Customer Analysis
+# Customers are classified based on their total order frequency to distinguish between one-time and repeat customers.
+# The analysis examines the number and percentage of customers in each group to understand repeat ordering behaviour.
+
+
+
+cus_total_order['Customer_Type'] = np.where(cus_total_order['Total_Orders'] == 1, 'One-time', 'Repeat')
+print(cus_total_order)
+total_cust_type = cus_total_order.groupby('Customer_Type')['Customer_ID'].count().reset_index()
+print(total_cust_type)
+
+# Findings:
+# All 2,500 customers were classified as repeat customers.
+# No one-time customers were identified in the dataset.
+# Repeat customers account for 100% of the customer base.
+
+# Step 15.5: Customer Type Percentage Analysis
+# The percentage distribution of one-time and repeat customers was calculated to understand the composition of the customer base.
+
+# Calculated the percentage distribution of one-time and repeat customers across the customer base.
+customer_percentage = cus_total_order['Customer_Type'].value_counts(normalize=True) * 100
+print(customer_percentage)
+
+# Findings:
+# Repeat customers account for 100% of the customer base, representing all 2,500 customers.
+# No one-time customers were identified in the dataset.
+
+# Step 15.6: Customer Order Frequency Distribution
+# Customer ordering frequency was examined using descriptive statistics to understand the distribution of orders across the customer base.
+# The analysis focuses on the minimum, maximum, average, and median number of orders placed per customer.
+
+print(cus_total_order['Total_Orders'].describe())
+
+# Findings:
+# The average and median order frequency were both 24 orders per customer.
+# Individual customer order counts ranged from 10 to 40 orders.
+# The middle 50% of customers placed between 21 and 27 orders.
+# The standard deviation of 4.76 indicates some variation in ordering frequency across customers.
+
+
+# Overall Findings:
+# The analysis covered all 2,500 customers in the dataset.
+# All customers were classified as repeat customers, with no one-time customers identified.
+# The average and median order frequency were both 24 orders per customer.
+# Customer order frequency ranged from 10 to 40 orders.
+# The middle 50% of customers placed between 21 and 27 orders.
