@@ -4,7 +4,7 @@ An end-to-end data analytics project focused on understanding food delivery oper
 
 ## Project Overview
 
-The project analyses food delivery data to identify operational trends, evaluate business performance and generate insights that can support data-driven decision-making.
+This project analyses food delivery data to identify operational trends, evaluate business performance and generate insights that can support data-driven decision-making.
 
 The analysis covers the complete workflow, from data inspection and cleaning to SQL-based business analysis, Python exploration and interactive Power BI dashboard development.
 
@@ -69,7 +69,7 @@ Analysis areas included:
 - Restaurant performance.
 - Customer behaviour and review analysis.
 
-Detailed documentation: [SQL Analysis](Documentation/SQL_Analysis.md)
+**Detailed documentation:** [SQL Analysis](Documentation/SQL_Analysis.md)
 
 ### 3. Python Analysis
 
@@ -83,11 +83,11 @@ Key analysis areas included:
 - Investigation of unusually short delivery durations.
 - Customer-level ordering frequency and repeat customer classification.
 
-Detailed documentation: [Python Analysis](Documentation/Python_Analysis.md)
+**Detailed documentation:** [Python Analysis](Documentation/Python_Analysis.md)
 
 ### 4. Power BI Dashboard
 
-Developed an interactive Power BI report containing four analytical pages:
+Developed an interactive Power BI report containing four analytical pages.
 
 | Dashboard Page | Focus |
 |---|---|
@@ -98,8 +98,32 @@ Developed an interactive Power BI report containing four analytical pages:
 
 The report includes KPI cards, charts and interactive slicers for exploring the data by relevant business dimensions.
 
-- [Power BI Dashboard File](Power%20BI/Food_Delivery_Operations_Customer_Analytics.pbix)
-- [Power BI Dashboard Guide](Documentation/PowerBI_Dashboard_Guide.md)
+## Dashboard Preview
+
+The following dashboard pages provide an overview of the interactive Power BI report.
+
+### 1. Executive Overview
+
+![Executive Overview](Documentation/images/executive-overview.png)
+
+### 2. Restaurant Performance
+
+![Restaurant Performance](Documentation/images/restaurant-performance.png)
+
+### 3. Delivery Operations
+
+![Delivery Operations](Documentation/images/delivery-operations.png)
+
+### 4. Customer Insights
+
+![Customer Insights](Documentation/images/customer-insights.png)
+
+**Dashboard resources:**
+
+- [Open the Power BI Dashboard File](Power%20BI/Food_Delivery_Operations_Customer_Analytics.pbix)
+- [Read the Power BI Dashboard Guide](Documentation/PowerBI_Dashboard_Guide.md)
+
+*Note: Download the PBIX file and open it using Microsoft Power BI Desktop.*
 
 ## Key Findings
 
@@ -119,35 +143,45 @@ The report includes KPI cards, charts and interactive slicers for exploring the 
 
 ### Customer Behaviour
 
-- The dataset contains 2,500 customers.
+- The dataset contains **2,500 customers**.
 - Python customer-level analysis classified all 2,500 customers as repeat customers within the available dataset.
-- Average and median order frequency were both 24 orders per customer.
-- Individual customer order counts ranged from 10 to 40.
+- Average and median order frequency were both **24 orders per customer**.
+- Individual customer order counts ranged from **10 to 40**.
 
 ## Repository Structure
 
 ```text
-Food Delivery Operations & Customer Analytics/
+Food-Delivery-Operations-Customer-Analytics/
 │
-├── SQL/
-│   ├── 02_data_validation.sql
-│   └── 03_business_analysis.sql
+├── Documentation/
+│   ├── SQL_Analysis.md
+│   ├── Python_Analysis.md
+│   ├── PowerBI_Dashboard_Guide.md
+│   └── images/
+│       ├── executive-overview.png
+│       ├── restaurant-performance.png
+│       ├── delivery-operations.png
+│       └── customer-insights.png
+│
+├── Power BI/
+│   └── Food_Delivery_Operations_Customer_Analytics.pbix
 │
 ├── Python/
 │   ├── 01_data_audit.py
 │   ├── 02_business_analysis.py
 │   └── Food_Delivery_Operations_Customer_Analytics.ipynb
 │
-├── Power BI/
-│   └── Food_Delivery_Operations_Customer_Analytics.pbix
+├── SQL/
+│   ├── 02_data_validation.sql
+│   └── 03_business_analysis.sql
 │
-├── Documentation/
-│   ├── SQL_Analysis.md
-│   ├── Python_Analysis.md
-│   └── PowerBI_Dashboard_Guide.md
+├── Visualization/
 │
-└── data/
-    └── cleaned/
+├── data/
+│   └── cleaned/
+│
+├── .gitignore
+└── README.md
 ```
 
 ## Business Value
@@ -175,4 +209,6 @@ The findings help highlight:
 
 Data Analytics | SQL | Python | Power BI | Excel
 
-[GitHub Repository](https://github.com/saradlakandri/Food-Delivery-Operations-Customer-Analytics)
+[GitHub Profile](https://github.com/saradlakandri)
+
+[Project Repository](https://github.com/saradlakandri/Food-Delivery-Operations-Customer-Analytics)
