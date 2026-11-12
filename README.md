@@ -104,19 +104,19 @@ The following dashboard pages provide an overview of the interactive Power BI re
 
 ### 1. Executive Overview
 
-![Executive Overview](Documentation/images/executive-overview.png)
+![Executive Overview](Documentation/Images/executive-overview.png)
 
 ### 2. Restaurant Performance
 
-![Restaurant Performance](Documentation/images/restaurant-performance.png)
+![Restaurant Performance](Documentation/Images/restaurant-performance.png)
 
 ### 3. Delivery Operations
 
-![Delivery Operations](Documentation/images/delivery-operations.png)
+![Delivery Operations](Documentation/Images/delivery-operations.png)
 
 ### 4. Customer Insights
 
-![Customer Insights](Documentation/images/customer-insights.png)
+![Customer Insights](Documentation/Images/customer-insights.png)
 
 **Dashboard resources:**
 
